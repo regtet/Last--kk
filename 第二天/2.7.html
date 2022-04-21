@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fff {
+            background: #fff;
+            color: #000 !important;
+        }
+        
+        li {
+            display: none;
+        }
+        
+        .show {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <p style="background: #000;display: inline-block;width: 500px;">
+        <span style="color: #fff;">第一节课</span>
+        <span style="color: #fff;">第二节课</span>
+        <span style="color: #fff;">第三节课</span>
+    </p>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+    <li>网页特效原理分析</li>
+</body>
+<script>
+    var span = document.querySelectorAll("p span")
+    var list = document.querySelectorAll("li")
+    for (let index = 0; index < list.length / 3; index++) {
+        list[index].classList.add("show")
+    }
+    for (let index = 0; index < span.length; index++) {
+        span[index].onmouseover = () => {
+            for (let i = 0; i < span.length; i++) {
+                span[i].classList.remove("fff")
+            }
+            span[index].classList.add("fff")
+            if (index == 0) {
+                for (let index = 0; index < list.length; index++) {
+                    list[index].classList.remove("show")
+                }
+                for (let index = 0; index < list.length / 3; index++) {
+                    list[index].classList.add("show")
+                }
+            } else if (index == 1) {
+                for (let index = 0; index < list.length; index++) {
+                    list[index].classList.remove("show")
+                }
+                for (let index = 0; index < list.length / 3 * 2; index++) {
+                    list[index].classList.add("show")
+                }
+            } else {
+                for (let index = 0; index < list.length; index++) {
+                    list[index].classList.remove("show")
+                }
+                for (let index = 0; index < list.length; index++) {
+                    list[index].classList.add("show")
+                }
+            }
+        }
+    }
+</script>
+
+</html>

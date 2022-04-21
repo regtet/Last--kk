@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            width: 500px;
+        }
+        
+        .box div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background: rgba(0, 0, 0, .3);
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        .box li {
+            position: relative;
+            width: 25%;
+            list-style: none;
+        }
+        
+        .add {
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            var li = document.querySelectorAll("li")
+            var zz = document.querySelectorAll("li div")
+            for (let index = 0; index < li.length; index++) {
+                li[index].onmousemove = () => {
+                    for (let index = 0; index < zz.length; index++) {
+                        zz[index].classList.remove("add")
+                    }
+                    zz[index].classList.add("add")
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+
+        <li>
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F19%2F20150519211131_AYUem.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652946167&t=7c5362ef41f38849ea687fba8e44ff4a"
+                alt="">
+            <div></div>
+        </li>
+        <li>
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F19%2F20150519211131_AYUem.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652946167&t=7c5362ef41f38849ea687fba8e44ff4a"
+                alt="">
+            <div></div>
+
+        </li>
+        <li>
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F19%2F20150519211131_AYUem.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652946167&t=7c5362ef41f38849ea687fba8e44ff4a"
+                alt="">
+            <div></div>
+
+        </li>
+        <li>
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F19%2F20150519211131_AYUem.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652946167&t=7c5362ef41f38849ea687fba8e44ff4a"
+                alt="">
+            <div></div>
+
+        </li>
+        <li>
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F19%2F20150519211131_AYUem.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652946167&t=7c5362ef41f38849ea687fba8e44ff4a"
+                alt="">
+            <div></div>
+
+        </li>
+        <li>
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F19%2F20150519211131_AYUem.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652946167&t=7c5362ef41f38849ea687fba8e44ff4a"
+                alt="">
+            <div></div>
+
+        </li>
+        <li>
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F19%2F20150519211131_AYUem.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652946167&t=7c5362ef41f38849ea687fba8e44ff4a"
+                alt="">
+            <div></div>
+
+        </li>
+        <li>
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F19%2F20150519211131_AYUem.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652946167&t=7c5362ef41f38849ea687fba8e44ff4a"
+                alt="">
+            <div></div>
+
+        </li>
+    </div>
+</body>
+
+</html>

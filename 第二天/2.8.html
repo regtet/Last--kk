@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .box li {
+            width: 25%;
+            list-style: none;
+            text-align: center;
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            font-weight: 700;
+            margin: 10px;
+        }
+        
+        .red {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+    </div>
+    <p></p>
+</body>
+<script>
+    var arr = document.querySelectorAll("li")
+    var p = document.querySelector("p")
+    for (let index = 0; index < arr.length; index++) {
+        arr[index].onmouseover = () => {
+            for (let i = 0; i < arr.length; i++) {
+                arr[i].classList.remove("red")
+            }
+            arr[index].classList.add("red")
+            p.innerText = arr[index].innerText + '日'
+        }
+    }
+</script>
+
+</html>
