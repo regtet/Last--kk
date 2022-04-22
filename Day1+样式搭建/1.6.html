@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            font-size: 12px;
+        }
+        
+        .k {
+            display: inline-block;
+            width: 200px;
+            border: 1px solid #000;
+            background-color: antiquewhite;
+            padding: 5px;
+        }
+        
+        .flag {
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            var d = document.querySelector(".box")
+            var dd = document.querySelector(".flag")
+            d.onmouseover = () => {
+                dd.classList.remove("flag")
+            }
+            d.onmouseout = () => {
+                dd.classList.add("flag")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"><input type="checkbox"> <span>两周内自动登录</span><br></div>
+    <div class="flag k">为了您的信息安全，请不要在网吧或公用电脑上使用此功能！</div>
+</body>
+
+</html>
