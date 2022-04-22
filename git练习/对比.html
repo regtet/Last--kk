@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <big>对比</big>
+    <input type="text">
+    <button>最大的数是</button> ?
+    <i></i>
+</body>
+<script>
+    var arr = document.querySelectorAll('input')
+    for (let index = 0; index < arr.length; index++) {
+        arr[index].onkeyup = () => {
+
+            arr[index].value = /^\d+$/.exec(arr[index].value)
+        }
+    }
+    document.querySelector("button").onclick = () => {
+        if (parseInt(arr[0].value) > parseInt(arr[1].value)) {
+            document.querySelector("i").innerText = parseInt(arr[0].value)
+        } else {
+            document.querySelector("i").innerText = parseInt(arr[1].value)
+        }
+    }
+</script>
+
+</html>
