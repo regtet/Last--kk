@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100%;
+            height: 800px;
+            padding-left: 600px;
+            box-sizing: border-box;
+            background: #3a4f54;
+            color: #fff;
+        }
+        
+        li {
+            list-style: none;
+            background: rgb(65, 65, 65);
+            color: #fff;
+            font-size: 12px;
+            width: 200px;
+            padding: 0 5px;
+            height: 25px;
+            line-height: 25px;
+            border: 1px solid #fff;
+        }
+        
+        ul {
+            padding: 0;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .ss {
+            cursor: pointer
+        }
+        
+        .ba {
+            background: rgba(214, 214, 214, 0.3)
+        }
+    </style>
+    <script>
+        window.onload = (() => {
+            document.querySelector("span").onclick = (() => {
+                document.querySelector("ul").classList.toggle("hide")
+            })
+            document.querySelector("span").onmousemove = (() => {
+                document.querySelector("span").classList.add("ss")
+            })
+            document.querySelector("ul").onmousemove = (() => {
+                document.querySelector("ul").classList.add("ss")
+            })
+            var li = document.querySelectorAll("li")
+            for (let index = 0; index < li.length; index++) {
+                li[index].onmousemove = (() => {
+                    for (let i = 0; i < li.length; i++) {
+                        li[i].classList.remove("ba")
+                    }
+                    li[index].classList.add("ba")
+                })
+                li[index].onmouseout = (() => {
+                    li[index].classList.remove("ba")
+                })
+            }
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <span>请选择游戏名称</span>
+        <ul class="hide">
+            <li>地下城</li>
+            <li> "123"</li>
+            <li> "3423"</li>
+            <li> "2352"</li>
+            <li> "34534"</li>
+            <li> "12235"</li>
+            <li> "23523"</li>
+            <li> "235235"</li>
+        </ul>
+    </div>
+</body>
+
+</html>
