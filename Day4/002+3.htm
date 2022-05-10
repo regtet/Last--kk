@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        width: 100px;
+    }
+    
+    body {
+        background: #000;
+    }
+    
+    img {
+        display: none;
+        width: 200px;
+        height: 200px;
+    }
+    
+    .show {
+        display: block;
+    }
+    
+    .lll {
+        background: red
+    }
+</style>
+<script>
+    window.onload = (() => {
+        var imgs = document.querySelectorAll("img")
+        var i = 0
+        var time = setInterval(() => {
+            var flag = true
+            console.log(i);
+            console.log(flag);
+            // if (i == 3) {
+            //     i = 0
+            // }
+            // for (let index = 0; index < imgs.length; index++) {
+            //     imgs[index].classList.remove("show")
+            //     imgs[i].classList.add("show")
+            // }
+            // i += 1
+
+            if (i < 2) {
+                i += 1
+            } else {
+                i -= 1
+                flag = false
+                console.log(flag, 666);
+            }
+            // if (flag == false && i >= 2) {
+            //     console.log(6969);
+            //     i -= 1
+            //     i < 0 ? flag = true : ''
+            // }
+
+            for (let index = 0; index < imgs.length; index++) {
+                imgs[index].classList.remove("show")
+                imgs[i].classList.add("show")
+            }
+
+
+        }, 1000)
+        let arr = document.querySelectorAll("button")
+        for (let index = 0; index < arr.length; index++) {
+            arr[index].onmousemove = (() => {
+                clearInterval(time)
+                for (let index = 0; index < arr.length; index++) {
+                    arr[index].classList.remove("lll")
+                }
+                arr[index].classList.add("lll")
+                for (let index = 0; index < imgs.length; index++) {
+                    imgs[index].classList.remove("show")
+                }
+                imgs[index].classList.add("show")
+            })
+            arr[index].onmouseout = (() => {
+                for (let index = 0; index < arr.length; index++) {
+                    arr[index].classList.remove("lll")
+                }
+                clearInterval(time)
+                var time = setInterval(() => {
+                    console.log(i);
+                    if (i == 3) {
+                        i = 0
+                    }
+                    for (let index = 0; index < imgs.length; index++) {
+                        imgs[index].classList.remove("show")
+                        imgs[i].classList.add("show")
+                    }
+                    i += 1
+
+                }, 1000)
+            })
+
+        }
+    })
+</script>
+
+<body>
+    <div class="box">
+        <img class="show" src="./阿狸4.webp" alt="">
+        <img src="./阿狸5.jpeg" alt="">
+        <img src="./步美.jpeg" alt="">
+    </div>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            display: inline-block;
+            padding: 10px;
+            border: 1px solid red;
+        }
+        
+        .show {
+            display: inline-block !important;
+        }
+        
+        .flag {
+            background-color: pink;
+        }
+        
+        .hide {
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            let btn = document.querySelector("button")
+            let box = document.querySelector(".box")
+            let list = document.querySelectorAll(".box li")
+            console.log(list);
+            btn.onclick = () => {
+                box.classList.toggle("show")
+            }
+
+            for (let index = 0; index < list.length; index++) {
+                list[index].onmouseover = () => {
+                    list[index].classList.add("flag")
+                }
+                list[index].onmouseout = () => {
+                    list[index].classList.remove("flag")
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button>输入法</button><br>
+    <div class="box hide">
+        <li>简写</li><br>
+        <li>拼音</li><br>
+        <li>关闭</li>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            text-align: center;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        div {
+            margin: auto;
+        }
+        
+        .top {
+            display: flex;
+        }
+        
+        .top li {
+            width: 5px;
+            height: 5px;
+            margin: 0 5px;
+        }
+        
+        .top li:nth-child(1) {
+            border: 8px solid red;
+            background-color: red;
+        }
+        
+        .top li:nth-child(2) {
+            border: 8px solid blue;
+            background-color: blue;
+        }
+        
+        .top li:nth-child(3) {
+            border: 8px solid skyblue;
+            background-color: skyblue;
+        }
+        
+        .list {
+            font-weight: 700;
+            font-size: 13px;
+            color: green;
+        }
+        
+        .list li {
+            padding: 5px 20px;
+            border: 1px solid green;
+            float: left;
+        }
+        
+        .flag {
+            background: #fff !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul class="top">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="list">
+            <li>新闻</li>
+            <li>娱乐</li>
+            <li>体育</li>
+            <li>电影</li>
+            <li>音乐</li>
+            <li>旅游</li>
+        </ul>
+
+    </div>
+</body>
+<script>
+    let arr = document.querySelectorAll(".top li")
+    let list = document.querySelectorAll(".list li")
+    let body = document.body
+    console.log(body);
+    for (let index = 0; index < arr.length; index++) {
+        arr[index].onclick = function() {
+            for (let i = 0; i < arr.length; i++) {
+                arr[i].classList.remove("flag")
+            }
+            if (index == 0) {
+                document.body.style.background = "skyblue"
+                for (let index = 0; index < list.length; index++) {
+                    list[index].style.background = "skyblue"
+                }
+            } else if (index == 1) {
+                document.body.style.background = "red"
+                for (let index = 0; index < list.length; index++) {
+                    list[index].style.background = "red"
+                }
+            } else {
+                document.body.style.background = "blue"
+                for (let index = 0; index < list.length; index++) {
+                    list[index].style.background = "blue"
+                }
+            }
+            arr[index].classList.add("flag")
+
+        }
+    }
+</script>
+
+</html>

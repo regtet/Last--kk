@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            color: #fff;
+            display: inline-block;
+            padding: 15px;
+        }
+        
+        span {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="background: #000;">
+        <span></span>点
+        <span></span>分
+        <span></span>秒
+    </div>
+</body>
+<script>
+    setInterval(() => {
+        let time = new Date().toLocaleTimeString()
+        let arr = document.querySelectorAll("span")
+        let ff = time.split(':')
+        for (let index = 0; index < arr.length; index++) {
+            arr[index].innerText = ff[index]
+        }
+    }, 1000)
+</script>
+
+</html>
