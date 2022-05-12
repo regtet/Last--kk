@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #999;
+    }
+
+    .one {
+      position: fixed;
+      top: 00;
+      left: 0;
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background: #000;
+      cursor: crosshair;
+    }
+
+    .onebox {
+      position: fixed;
+      top: 0px;
+      width: 100px;
+      height: 100px;
+      left: 0;
+      background: rgba(255, 0, 0, 0.3);
+      display: none;
+    }
+
+    .two {
+      display: inline-block;
+      width: 100px;
+      position: fixed;
+      top: 0px;
+      left: 300px;
+      height: 100px;
+      background: #000;
+      cursor: crosshair;
+    }
+
+    .twobox {
+      position: fixed;
+      left: 300px;
+      top: 0px;
+      width: 100px;
+      height: 100px;
+      background: rgba(0, 0, 0, .3);
+      display: none;
+    }
+
+    .show {
+      display: block !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="one"></div>
+  <div class="two"></div>
+  <div class="onebox"></div>
+  <div class="twobox"></div>
+</body>
+<script>
+  var q = document.querySelector(".one")
+  var qq = document.querySelector(".two")
+  var w = document.querySelector(".onebox")
+  var ww = document.querySelector(".twobox")
+
+  q.onmousedown = ((e) => {
+    w.classList.add("show")
+  })
+  w.onmousemove = (e => {
+    console.log(e.clientX);
+    console.log(e.clientY);
+    w.style.top = e.clientY - 50 + 'px'
+    w.style.left = e.clientX - 50 + 'px'
+  })
+  w.onmouseup = ((e) => {
+    w.classList.remove("show")
+    q.style.top = w.style.top
+    q.style.left = w.style.left
+  })
+
+
+  qq.onmousedown = ((e) => {
+    ww.classList.add("show")
+  })
+  ww.onmousemove = (e => {
+    console.log(e.clientX);
+    console.log(e.clientY);
+    ww.style.top = e.clientY - 50 + 'px'
+    ww.style.left = e.clientX - 50 + 'px'
+  })
+  ww.onmouseup = ((e) => {
+    ww.classList.remove("show")
+    qq.style.top = ww.style.top
+    qq.style.left = ww.style.left
+  })
+</script>
+
+</html>

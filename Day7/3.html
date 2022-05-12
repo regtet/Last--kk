@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      position: fixed;
+      top: 30px;
+      left: 0;
+
+      width: 50px;
+      height: auto;
+      display: none;
+    }
+
+    .hide {
+      display: block !important;
+    }
+  </style>
+</head>
+
+<body>
+  <button>点击位置移动</button>
+  <button>轨迹移动</button>
+  <span>点击按钮激活</span>
+  <img class="hide" src="./阿狸.png" alt="">
+  <img src="./阿狸5.jpeg" alt="">
+</body>
+<script>
+  var btn = document.querySelectorAll("button")
+  var span = document.querySelector("span")
+  var imgs = document.querySelectorAll("img")
+  var flag = 0
+  btn[0].onclick = (() => {
+    flag = 0
+    span.innerText = '点击位置移动'
+  })
+  btn[1].onclick = (() => {
+    flag = 1
+    span.innerText = '轨迹移动'
+  })
+  var ArrX = []
+  var ArrY = []
+  var x = 0
+  var y = 0
+  document.onclick = ((e) => {
+
+    if (flag == 0) {
+      var time = setInterval(() => {
+        if (y < e.clientY) {
+          y++
+          imgs[0].style.top = y + 'px'
+        } else if (y > e.clientY) {
+          y--
+          imgs[0].style.top = y + 'px'
+        }
+        if (x < e.clientX) {
+          x++
+          imgs[0].style.left = x + 'px'
+        } else {
+          x--
+          imgs[0].style.left = x + 'px'
+        }
+        if (x == e.clientX && y == e.clientY) {
+          clearInterval(time)
+          console.log(x, y);
+        }
+      }, 10)
+
+    } else if (flag == 1) {
+      document.onmousedown = ((e) => {
+        flag = 3
+        document.onmousemove = (e => {
+          if (flag == 3) {
+            ArrX.push(e.clientX)
+            ArrY.push(e.clientY)
+            console.log(ArrX);
+          }
+        })
+        return false
+
+      })
+      document.onmouseup = (e => {
+        flag = 2
+        console.log(e);
+
+        console.log(ArrX);
+        var omg = setInterval(() => {
+          imgs[0].style.top = ArrY[0] + 'px'
+          ArrY.shift()
+          imgs[0].style.left = ArrX[0] + 'px'
+          ArrX.shift()
+          if (ArrX.length == 0 && ArrY.length == 0) {
+            clearInterval(omg)
+          }
+        }, 30)
+
+      })
+      ArrX.push(e.clientX)
+      ArrY.push(e.clientY)
+      console.log(ArrX.push, flag);
+    }
+  })
+</script>
+
+</html>

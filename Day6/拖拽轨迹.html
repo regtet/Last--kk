@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #000;
+    }
+
+    div {
+      width: 200px;
+      height: 100px;
+      border: 3px solid #fff;
+      position: fixed;
+      top: 200px;
+      left: 800px;
+      padding: 0;
+      color: #fff;
+    }
+
+    p {
+      padding: 0;
+      cursor: move;
+      margin: 0;
+
+    }
+
+    big {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      background: #333;
+    }
+
+    span {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <big>
+      <p>点击回放轨迹</p> <span>回放轨迹</span>
+    </big>
+
+  </div>
+</body>
+<script>
+  var box = document.querySelector("div")
+  var p = document.querySelector("p")
+  var span = document.querySelector("span")
+  var flag = false
+
+  p.onmousedown = ((e) => {
+    flag = true
+  })
+  let ArrX = []
+  let ArrY = []
+  document.onmousemove = ((e) => {
+    if (flag) {
+      ArrX.push(e.clientX)
+      ArrY.push(e.clientY)
+      box.style.left = e.clientX + 'px'
+      box.style.top = e.clientY + 'px'
+    }
+  })
+  document.onmouseup = (() => {
+    flag = false
+  })
+  var time
+  span.onclick = (() => {
+    flag = false
+    time = setInterval(() => {
+      box.style.left = ArrX.at(-1) + 'px'
+      ArrX.pop()
+      box.style.top = ArrY.at(-1) + 'px'
+      ArrY.pop()
+      console.log(flag);
+      if (ArrX.length == 0 || ArrY.length == 0) {
+        clearInterval(time)
+      }
+      console.log(flag);
+    }, 30)
+  })
+</script>
+
+</html>

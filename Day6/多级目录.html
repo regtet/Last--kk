@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    li {
+      list-style: none;
+    }
+
+    div {
+      display: none;
+    }
+
+    .hide {
+      display: block !important;
+    }
+
+    .one {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .ss {
+      background: #333;
+      color: #fff;
+    }
+
+    .two {
+      position: fixed;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="one">
+    <li>JS学习</li>
+    <li>第一课</li>
+    <li>第二课</li>
+    <li>第三课</li>
+    <div class="two">
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+    </div>
+  </div>
+</body>
+<script>
+  var pageX = 0;
+  var pageY = 0;
+  var one = document.querySelector(".one")
+  var oneli = document.querySelectorAll(".one li")
+  var two = document.querySelector(".two")
+  one.addEventListener('mousemove', e => {
+    if (e.target.innerText == '第一课') {
+      pageX = e.pageX
+      pageY = e.pageY
+      two.classList.add("hide")
+      console.log(e);
+      two.style.top = pageY + 10 + 'px'
+      two.style.left = pageX + 30 + 'px'
+    } else if (e.target.innerText == '第二课') {
+      pageX = e.pageX
+      pageY = e.pageY
+      two.classList.add("hide")
+      two.style.top = pageY + 10 + 'px'
+      two.style.left = pageX + 30 + 'px'
+      for (let index = 0; index < two.children.length; index++) {
+        two.children[index].innerText = '22'
+      }
+
+    } else if (e.target.innerText == '第三课') {
+      pageX = e.pageX
+      pageY = e.pageY
+      two.classList.add("hide")
+      console.log(e);
+      two.style.top = pageY + 10 + 'px'
+      two.style.left = pageX + 30 + 'px'
+      for (let index = 0; index < two.children.length; index++) {
+        two.children[index].innerText = '33'
+      }
+
+    }
+    e.target.classList.add('ss')
+
+  })
+  one.addEventListener('mouseout', e => {
+    e.target.classList.remove('ss')
+  })
+
+  two.addEventListener('mousemove', e => {
+    console.log(e.target);
+    e.target.onclick = (() => {
+      console.log(6);
+      one.classList.remove("hide")
+    })
+  })
+
+  document.oncontextmenu = (e => {
+    console.log(e.clientX);
+    console.log(e.clientY);
+    one.style.top = e.clientY + 'px'
+    one.style.left = e.clientX + 'px'
+    one.classList.add("hide")
+    return false
+  })
+</script>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      position: relative;
+      width: 500px;
+      height: 300px;
+      margin: auto;
+      background: #000;
+      overflow: hidden;
+    }
+
+    img {
+      width: 100%;
+      height: none;
+      display: none;
+    }
+
+    body {
+      background: #000
+    }
+
+    .left {
+      position: absolute;
+      top: 120px;
+      width: 40px;
+      height: 50px;
+      background-image: url(./btn.png);
+      background-position: 0px -15px;
+      display: none;
+      border: 1px solid red;
+    }
+
+    .right {
+      position: absolute;
+      display: none;
+      right: 0;
+      top: 120px;
+      width: 40px;
+      height: 50px;
+      background-image: url(./btn.png);
+      background-position: -38px -15px;
+      border: 1px solid red;
+    }
+
+    p {
+      position: absolute;
+      top: 0;
+      margin: 0;
+      left: 15px;
+      background: #999;
+      color: #fff;
+      text-align: center;
+      width: 100%;
+      display: none;
+    }
+
+    .fff {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-25px);
+      transform: translateY(-50px);
+      height: 50px;
+      background-image: url(./loading.gif);
+      background-size: 50px;
+      background-repeat: no-repeat;
+      width: 500px;
+      display: none;
+    }
+
+    .hide {
+      display: block !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="fff">
+    </div>
+    <p>111</p>
+    <img src="./步美.jpeg" class="hide" alt="">
+    <img src="./阿狸.png" alt="">
+    <img src="./阿狸1.webp" alt="">
+    <img src="./阿狸4.webp" alt="">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+</body>
+<script>
+  var arr = [111, 222, 3334, 444]
+  var box = document.querySelector(".box")
+  var left = document.querySelector(".left")
+  var right = document.querySelector(".right")
+  var imgs = document.querySelectorAll("img")
+  var index = 0
+  var p = document.querySelector("p")
+  box.onmousemove = (e => {
+    if (e.screenX < 800) {
+      left.classList.toggle("hide")
+    } else {
+      right.classList.toggle("hide")
+    }
+  })
+  left.onclick = (() => {
+    if (index <= 0) {
+      return false
+    } else {
+      index--
+      for (let index = 0; index < imgs.length; index++) {
+        imgs[index].classList.remove("hide")
+      }
+      p.classList.remove("hide")
+      setTimeout(() => {
+        imgs[index].classList.add("hide")
+        p.classList.add("hide")
+        p.innerText = arr[index]
+        document.querySelector(".fff").style.display = 'none'
+      }, 1000)
+      document.querySelector(".fff").style.display = 'block'
+    }
+  })
+  right.onclick = (() => {
+    if (index >= 3) {
+      return false
+    } else {
+      index++
+      console.log(index);
+      for (let index = 0; index < imgs.length; index++) {
+        imgs[index].classList.remove("hide")
+      }
+      p.classList.remove("hide")
+      setTimeout(() => {
+        imgs[index].classList.add("hide")
+        p.classList.add("hide")
+        p.innerText = arr[index]
+        document.querySelector(".fff").style.display = 'none'
+      }, 1000)
+      document.querySelector(".fff").style.display = 'block'
+
+    }
+  })
+</script>
+
+</html>

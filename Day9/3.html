@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 64px;
+    }
+
+    body {
+      padding: 20px;
+    }
+
+    .d {
+      animation: dh .5s;
+    }
+
+    .x {
+      animation: dh2 .5s;
+    }
+
+    @keyframes dh {
+      0% {
+        transform: scale(1);
+      }
+
+
+
+      100% {
+        transform: scale(2);
+      }
+    }
+
+    @keyframes dh2 {
+      100% {
+        transform: scale(1);
+      }
+
+
+
+      0% {
+        transform: scale(2);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <img src="1.png" alt="">
+  <img src="2.png" alt="">
+  <img src="3.png" alt="">
+  <img src="4.png" alt="">
+  <img src="5.png" alt="">
+  <img src="6.png" alt="">
+  <img src="7.png" alt="">
+  <img src="8.png" alt="">
+</body>
+<script>
+  var img = document.querySelectorAll("img")
+  for (let index = 0; index < img.length; index++) {
+    img[index].onmousemove = (() => {
+      img[index].classList.remove("x")
+      img[index].classList.add("d")
+    })
+    img[index].onmouseout = (() => {
+      img[index].classList.remove("d")
+      img[index].classList.add("x")
+    })
+  }
+
+</script>
+
+</html>
