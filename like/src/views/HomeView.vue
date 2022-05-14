@@ -38,6 +38,17 @@
                   :class="'iconfont ' + icon[i]"
                   style="margin-right: 5px; color: pink"
                 ></i>
+                <svg
+                  class="icon"
+                  aria-hidden="true"
+                  style="margin-right: 5px; color: pink"
+                >
+                  <use
+                    :xlink:href="'#' + icon[i]"
+                    style="margin-right: 5px; color: pink"
+                  ></use>
+                </svg>
+
                 <span slot="title">{{ item.authName }} </span>
               </template>
               <el-menu-item
@@ -49,6 +60,16 @@
                   :class="'iconfont ' + icon2[idx]"
                   style="margin-right: 5px"
                 ></i>
+                <svg
+                  class="icon"
+                  aria-hidden="true"
+                  style="margin-right: 5px; color: pink"
+                >
+                  <use
+                    :xlink:href="'#' + icon2[idx]"
+                    style="margin-right: 5px; color: pink"
+                  ></use>
+                </svg>
                 {{ ele.authName }}
               </el-menu-item>
             </el-submenu>
@@ -84,9 +105,9 @@ import MBX from '@/components/MBX.vue'
 export default {
   data() {
     return {
-      flag: false, //开关
-      LeftList: [], //左侧菜单
-      num: 0, //旋转度数
+      flag: false, // 开关
+      LeftList: [], // 左侧菜单
+      num: 0, // 旋转度数
       arr: ['用户列表', '用户管理'],
       icon: [
         'icon-chongwutubiao18',
@@ -100,16 +121,16 @@ export default {
   },
   methods: {
     async send() {
-      //拿到左侧菜单数据
+      // 拿到左侧菜单数据
       const List = await GetMenus()
       this.LeftList = List
     },
     handleOpen(key, keyPath) {
-      //展开
+      // 展开
       // console.log(key, keyPath, "展开");
     },
     handleClose(key, keyPath) {
-      //收起
+      // 收起
       // console.log(key, keyPath, "收起");
     },
     out() {
@@ -130,7 +151,7 @@ export default {
         .catch(() => {
           this.$message({
             type: 'warning',
-            message: '还是舍不得人家啊'
+            message: '取消退出'
           })
         })
     },

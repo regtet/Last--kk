@@ -2,16 +2,16 @@
   <div class="stimulate">
     <el-button
       @click="
-        flag = 0;
-        index = 0;
+        flag = 0
+        index = 0
       "
       type="primary"
       >听音乐</el-button
     >
     <el-button
       @click="
-        flag = 1;
-        index = 0;
+        flag = 1
+        index = 0
       "
       type="success"
       >看动画</el-button
@@ -53,8 +53,18 @@
           <i @click="right" class="iconfont icon-play-next"></i>
         </div>
         <div class="imgs">
-          <img  :style="'transform:rotate(' + Time + 'deg)'" v-if="hope > 5" src="../assets/img/ali0.png" alt="" />
-          <img  :style="'transform:rotate(' + Time + 'deg)'" v-else src="../assets/img/bumei.jpeg" alt="" />
+          <img
+            :style="'transform:rotate(' + Time + 'deg)'"
+            v-if="hope > 5"
+            src="../assets/img/ali0.png"
+            alt=""
+          />
+          <img
+            :style="'transform:rotate(' + Time + 'deg)'"
+            v-else
+            src="../assets/img/bumei.jpeg"
+            alt=""
+          />
         </div>
       </li>
       <li v-if="index == 1">
@@ -185,6 +195,8 @@
           <img v-else src="../assets/img/bumei.jpeg" alt="" />
         </div>
       </li>
+
+      <canvas id="box" width="600" height="800"></canvas>
     </div>
     <div v-if="flag == 1" class="ShowBox">
       <div class="TopList">
@@ -504,115 +516,125 @@ export default {
       Time: 0, //角度
       TopList: false,
       items: [
-        { type: "", label: "晴天" },
-        { type: "success", label: "标签二" },
-        { type: "info", label: "标签三" },
-        { type: "danger", label: "标签四" },
-        { type: "warning", label: "标签五" },
+        { type: '', label: '晴天' },
+        { type: 'success', label: '标签二' },
+        { type: 'info', label: '标签三' },
+        { type: 'danger', label: '标签四' },
+        { type: 'warning', label: '标签五' }
       ],
       arr: [
-        "晴天",
-        "城南花已开",
-        "AGA",
-        "理想三旬",
-        "云烟成雨",
-        "喜羊羊与灰太狼",
-        "枯木不逢春",
-        "山楂树",
-        "像鱼",
+        '晴天',
+        '城南花已开',
+        'AGA',
+        '理想三旬',
+        '云烟成雨',
+        '喜羊羊与灰太狼',
+        '枯木不逢春',
+        '山楂树',
+        '像鱼'
       ],
       Arr: [
-        "阿狸第一集",
-        "阿狸第二集",
-        "阿狸第三集",
-        "阿狸第四集",
-        "阿狸第五集",
-        "阿狸第六集",
-        "超兽第一集武装",
-        "果宝特攻",
-        "数码宝贝",
-        "开心宝贝",
-        "神奇阿呦",
-        "猪猪侠",
-        "头出没",
-        "左手右手",
-        "猫和老鼠",
-        "派大星",
-        "汤姆",
-        "猫",
-        "柯南",
-      ],
-    };
+        '阿狸第一集',
+        '阿狸第二集',
+        '阿狸第三集',
+        '阿狸第四集',
+        '阿狸第五集',
+        '阿狸第六集',
+        '超兽第一集武装',
+        '果宝特攻',
+        '数码宝贝',
+        '开心宝贝',
+        '神奇阿呦',
+        '猪猪侠',
+        '头出没',
+        '左手右手',
+        '猫和老鼠',
+        '派大星',
+        '汤姆',
+        '猫',
+        '柯南'
+      ]
+    }
   },
   methods: {
     change() {
-      this.index++;
+      this.index++
       if (this.index >= 9) {
-        this.index = 0;
+        this.index = 0
       }
     },
     clicks() {
       setInterval(() => {
-        this.Time += 0.2;
-      }, 10);
-      document.querySelector(".ww").pause();
+        this.Time += 0.2
+      }, 10)
+      document.querySelector('.ww').pause()
     },
     click() {
-      document.querySelector(".ww").play();
-        setInterval(() => {
-        this.Time -= 0.2;
-      }, 10);
+      document.querySelector('.ww').play()
+      setInterval(() => {
+        this.Time -= 0.2
+      }, 10)
     },
     left() {
-      this.hope = Math.random() * 10;
-      this.Time = 0;
-      this.index--;
+      this.hope = Math.random() * 10
+      this.Time = 0
+      this.index--
       if (this.index < 0) {
-        this.index = 8;
+        this.index = 8
       }
     },
     right() {
-      this.hope = Math.random() * 10;
-      this.Time = 0;
-      this.index++;
+      this.hope = Math.random() * 10
+      this.Time = 0
+      this.index++
       if (this.index > 8) {
-        this.index = 0;
+        this.index = 0
       }
     },
 
     Twochange() {
-      this.index++;
+      this.index++
       if (this.index >= 19) {
-        this.index = 0;
+        this.index = 0
       }
     },
     Twoleft() {
-      this.hope = Math.random() * 10;
-      this.Time = 0;
-      this.index--;
+      this.hope = Math.random() * 10
+      this.Time = 0
+      this.index--
       if (this.index < 0) {
-        this.index = 18;
+        this.index = 18
       }
     },
     Tworight() {
-      this.hope = Math.random() * 10;
-      this.Time = 0;
-      this.index++;
+      this.hope = Math.random() * 10
+      this.Time = 0
+      this.index++
       if (this.index > 18) {
-        this.index = 0;
+        this.index = 0
       }
-    },
+    }
   },
   components: {},
   computed: {},
   watch: {},
   created() {
     setInterval(() => {
-      this.Time -= 0.2;
-    }, 10);
+      this.Time -= 0.2
+    }, 10)
+    var times = setInterval(() => {
+      var box = document.querySelector('#box')
+      const ctx = box.getContext('2d')
+      ctx.clearRect(0, 0, 800, 800)
+      for (let index = 0; index < 10; index++) {
+        var height = Math.random() * 280 + 10
+        ctx.fillStyle = '#' + parseInt(Math.random() * 0xffffff).toString(16) //随机数*16进制再变成一个16进制
+        ctx.fillRect(120 + 40 * index, 300 - height, 20, height)
+      }
+    }, 130)
   },
-  mounted() {},
-};
+  mounted() {}
+}
 </script>
 <style lang="scss" scoped>
 .stimulate {

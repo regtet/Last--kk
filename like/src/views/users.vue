@@ -221,7 +221,7 @@ export default {
     input: _.debounce(function () {
       this.send()
     }, 300),
-    //渲染页面
+    // 渲染页面
     async send() {
       const List = await GetList(this.current)
       this.current.pagenum = List.pagenum
@@ -229,7 +229,7 @@ export default {
       this.tableData = List.users
       this.tableDataS = this.tableData
     },
-    //点击添加用户按钮，弹出模态框
+    // 点击添加用户按钮，弹出模态框
     add() {
       //   for (const key in this.form) {
       //     this.form[key] = "";
