@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    .box {
+      width: 100%;
+      height: 100%;
+      background: url(images/bg.jpg) no-repeat 0 0 /auto;
+      padding: 1px;
+    }
+
+    .top {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      background: url(images/title.png) no-repeat center/99% auto;
+      text-align: center;
+      font-size: 26px;
+      color: #Fff;
+    }
+
+    .contBox {
+      width: 100%;
+      height: calc(100% - 300px);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .itembox {
+      flex: 1;
+      border: 1px solid transparent;
+      margin: 0 5px;
+    }
+
+    .itembox:nth-child(1),
+    .itembox:nth-child(3) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .itemBoxBoxs {
+      border: 1px solid transparent;
+      flex: 1;
+    }
+
+    .itemBoxBoxs:nth-child(2) {
+      margin-top: 20px;
+    }
+
+    .itembox:nth-child(2) {
+      flex: 1.5;
+    }
+
+    .btmBox {
+      height: 250px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btmItemBox {
+      border: 1px solid transparent;
+      flex: 1;
+      margin: 20px 8px 0;
+    }
+
+    .border {
+      border-image-source: url(images/border_bg01.png);
+      border-image-slice: 70;
+      border-image-width: 15%;
+      border-image-repeat: repeat;
+    }
+
+    .name {
+      width: 50%;
+      height: 30px;
+      margin-left: 25%;
+      margin-top: -15px;
+      border-radius: 15px;
+      line-height: 30px;
+      text-align: center;
+      color: #fff;
+      background: rgb(54, 103, 182);
+      display: flex;
+      align-items: center;
+    }
+
+    .name img {
+      width: 15px;
+      height: 15px;
+      margin: 0 25px;
+    }
+
+    .exs1,
+    .exs2,
+    .exs3,
+    .exs4,
+    .exs5,
+    .exs6,
+    .exs7,
+    .exs9,
+    .exs8 {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="box">
+    <div class="top">
+      广 西 电 子 商 务 公 共 服 务 平 台 大 数 据 中 心
+    </div>
+    <div class="contBox">
+      <div class="itembox">
+        <div class="itemBoxBoxs border ">
+          <div class="name"> <img src="images/selsct_time.png" alt=""> 全区快递企业月寄递星</div>
+          <div class="exs1"></div>
+        </div>
+        <div class="itemBoxBoxs border ">
+          <div class="name"> <img src="images/selsct_time.png" alt="">电子商务销售额,订单数</div>
+          <div class="exs2"></div>
+        </div>
+      </div>
+      <div class="itembox border ">
+        <div class="name" style="width: 35%;margin-left: 250px;margin-top:-5px ;"> <img src="images/selsct_time.png"
+            alt="">广西电子商务进农村
+        </div>
+        <div class="exs3"></div>
+      </div>
+      <div class="itembox">
+        <div class="itemBoxBoxs border ">
+          <div class="name"> <img src="images/selsct_time.png" alt="">全区快递月基地数量</div>
+          <div class="exs4"></div>
+        </div>
+        <div class="itemBoxBoxs border ">
+          <div class="name"> <img src="images/selsct_time.png" alt="">电商企业入驻情况</div>
+          <div class="exs5"></div>
+        </div>
+      </div>
+    </div>
+    <div class="btmBox">
+      <div class="btmItemBox border">
+        <div class="name"> <img src="images/selsct_time.png" alt="">农村电商交易况</div>
+        <div class="exs6"></div>
+      </div>
+      <div class="btmItemBox border">
+        <div class="name" style="width: 70%;margin-left: 60px;"> <img src="images/selsct_time.png" alt="">广西电子商务热销产品排行榜
+        </div>
+        <div class="exs7"></div>
+      </div>
+      <div class="btmItemBox border">
+        <div class="name" style="width: 70%;margin-left: 60px;"> <img src="images/selsct_time.png" alt="">电子商务热销店铺排行榜
+        </div>
+        <div class="exs8"></div>
+      </div>
+      <div class="btmItemBox border">
+        <div class="name" style="margin-left: 100px;"> <img src="images/selsct_time.png" alt="">平台活动案例</div>
+        <div class="exs9"></div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="echarts.min.js"></script>
+<script type="module">
+  import mapData from './data.js'
+  var chartDom1 = document.querySelector('.exs1');
+  var myChart1 = echarts.init(chartDom1);
+  var option1 = {
+    title: {
+      left: 'center'
+    },
+    tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      left: 'left'
+    },
+    series: [
+      {
+        name: 'Access From',
+        type: 'pie',
+        radius: '50%',
+        top: 30,
+        left: 150,
+        data: [
+          { value: 10480, name: 'Search Engine' },
+          { value: 735, name: 'Di' },
+          { value: 580, name: 'Em' },
+          { value: 484, name: 'UnAdss' },
+          { value: 300, name: 'ViAss' },
+          { value: 300, name: 'ViAs' },
+          { value: 300, name: 'ViAss' },
+          { value: 300, name: 'eAds' },
+          { value: 300, name: 'dds' },
+          { value: 300, name: 'eAds' },
+          { value: 300, name: 'da Ads' },
+          { value: 300, name: 'A' },
+          { value: 300, name: 'dAds' },
+          { value: 300, name: ' s' },
+          { value: 300, name: 'wAds' },
+          { value: 300, name: 'A' },
+          { value: 300, name: 'ods' },
+          { value: 300, name: 'A' },
+          { value: 300, name: 'ods' },
+          { value: 300, name: 'Viao Ads' },
+          { value: 300, name: 'Vie Ads' },
+          { value: 300, name: 'ViA' },
+          { value: 300, name: 'ViA' }
+        ],
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc']
+          }
+        }
+      }
+    ],
+    color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc']
+  };
+  myChart1.setOption(option1);
+
+
+  const mychartDom = document.querySelector('.exs3')
+  //将mychartDom初始化为一个Echart对象
+  const myChart = echarts.init(mychartDom);
+
+
+  //注册一个地图,geoJSON格式的数据
+  echarts.registerMap('china', mapData)
+
+  //配置图表对象  
+  const config = {
+    geo: {
+      show: true,
+      map: 'china',
+      roam: true,
+      emphasis: {
+        itemStyle: {
+          areaColor: 'yellow',
+          borderColor: '#f00',
+          borderWidth: 2
+        }
+      },
+      top: '-120%',
+      left: '-20%',
+      itemStyle: {
+        borderColor: '#00f',
+        areaColor: {
+          type: 'radial',
+          x: 0.5,
+          y: 0.5,
+          r: 0.5,
+          colorStops: [{
+            offset: 0, color: 'rgba(255,0,0,1)' // 0% 处的颜色
+          }, {
+            offset: 1, color: 'rgba(0,255,255,0)' // 100% 处的颜色
+          }],
+          global: false // 缺省为 false
+        }
+      },
+      center: [104.672238, 33.463287],
+      label: {
+        show: true,
+        //  color:'#f00'
+      },
+      scaleLimit: {
+        min: 3,
+        max: 3
+      }
+    }
+  }
+  //渲染图表数据
+  myChart.setOption(config)
+
+  var chartDom2 = document.querySelector('.exs2');
+  var myChart2 = echarts.init(chartDom2);
+  var option2 = {
+    title: {
+    },
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      data: ['销售额', '订单数', 'Video Ads', 'Direct', 'Search Engine'],
+      top: 20
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+
+      {
+        name: '销售额',
+        type: 'line',
+        stack: 'Total',
+        data: [320, 332, 301, 334, 390, 330, 320]
+      },
+      {
+        name: '订单数',
+        type: 'line',
+        stack: 'Total',
+        data: [330, 332, 301, 334, 390, 330, 320]
+      },
+    ],
+    color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc']
+  };
+  myChart2.setOption(option2);
+
+
+  var chartDom4 = document.querySelector('.exs4');
+  var myChart4 = echarts.init(chartDom4);
+  var option4 = {
+    legend: {
+      data: ['2018年9月', '2018年10月', '2018年11月', '2018年12月', '2018年13月', '2018年14月',]
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      data: ['2018年9月', '2018年10月', '2018年11月', '2018年12月', '2018年13月', '2018年14月',]
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        name: 'Email',
+        type: 'line',
+        stack: 'Total',
+        data: [120, 132, 101, 134, 90, 230, 210]
+      },
+      {
+        name: 'Union Ads',
+        type: 'line',
+        stack: 'Total',
+        data: [220, 182, 191, 234, 290, 330, 310]
+      },
+      {
+        name: 'Video Ads',
+        type: 'line',
+        stack: 'Total',
+        data: [150, 232, 201, 154, 190, 330, 410]
+      },
+      {
+        name: 'Direct',
+        type: 'line',
+        stack: 'Total',
+        data: [320, 332, 301, 334, 390, 330, 320]
+      },
+      {
+        name: 'Search Engine',
+        type: 'line',
+        stack: 'Total',
+        data: [820, 932, 901, 934, 1290, 1330, 1320]
+      }
+    ]
+  };
+  myChart4.setOption(option4);
+
+
+  var chartDom6 = document.querySelector('.exs6');
+  var myChart6 = echarts.init(chartDom6);
+  var types = [
+    '名称',
+    '详情'
+  ];
+  const yArr = ['交易总金', '交易订单数量', '产品SKU', '月交易总金额', '交易总数']
+  var names = ['1', '2', '3', '4', '5'];
+
+  var data = [
+    [0, 0, 9],
+    [0, 1, 4],
+    [0, 2, 8.3],
+    [1, 0, 7],
+    [1, 1, 4],
+    [1, 2, 27.56],
+    [2, 0, 1],
+    [2, 1, 44],
+    [2, 2, 127.31],
+    [3, 0, 5],
+    [3, 1, 48],
+    [3, 2, 1741.88],
+    [4, 0, 100],
+    [4, 1, 100],
+    [4, 2, 100]
+  ];
+
+  data = data.map((item) => {
+    return {
+      value: [item[1], item[0], item[2] || '-'],
+      itemStyle: {
+        color: item[0] === 4 ? '#fe9a8b1a' : '#fff'
+      },
+      label: {
+        color: item[0] === 4 ? '#ccc' : '#fe9a8b',
+        align: 'center'
+      },
+      emphasis: {
+        itemStyle: {
+          color: item[0] === 4 ? '#fe9a8b1a' : '#FFF'
+        }
+      }
+    }
+  });
+
+  var option6 = {
+    grid: {
+      backgroundColor: '#F6F8FA',
+      width: 270,
+      height: 28 * yArr.length,
+      left: 'center',
+      top: 'center'
+    },
+    xAxis: {
+      type: 'category',
+      data: types,
+      splitArea: {
+        show: false,
+      },
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        show: false
+      }
+    },
+    yAxis: {
+      type: 'category',
+      data: names,
+      splitArea: {
+        show: true,
+      },
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        show: false
+      }
+    },
+    series: [
+      {
+        type: 'heatmap',
+        data: data,
+        label: {
+          show: true,
+          fontSize: 14,
+          lineHeight: 22,
+          formatter: (params) => {
+            if (params.name === '比例') {
+              // console.log(params)
+              if (params.value[1] !== 4) {
+                return params.value[2] + '%'
+              } else {
+                console.log(params)
+                return params.name
+              }
+            }
+            else if (params.name === '详情') {
+              if (params.value[1] === 4) {
+                return params.name + '（/万元）'
+              }
+            } else {
+              return yArr[params.value[1]]
+            }
+          }
+        },
+        tooltip: {
+          show: false
+        },
+        itemStyle: {
+          color: '#fff'
+        }
+      }
+    ]
+  }
+  myChart6.setOption(option6);
+
+
+  var chartDom7 = document.querySelector('.exs7');
+  var myChart7 = echarts.init(chartDom7);
+  var types = [
+    '产品名称',
+    '品种',
+    '产地'
+  ];
+  const yArrs = [
+    '陆小果',
+    '菠萝吹嘘',
+    '橙留香',
+    '小果叮',
+    '大西瓜',
+  ]
+  var names = ['1', '2', '3', '4', '5'];
+
+  var data = [
+    [0, 0, 9],
+    [0, 1, 4],
+    [0, 2, 8.3],
+    [1, 0, 7],
+    [1, 1, 4],
+    [1, 2, 27.56],
+    [2, 0, 1],
+    [2, 1, 44],
+    [2, 2, 127.31],
+    [3, 0, 5],
+    [3, 1, 48],
+    [3, 2, 1741.88],
+    [4, 0, 100],
+    [4, 1, 100],
+    [4, 2, 100]
+  ];
+
+  data = data.map((item) => {
+    return {
+      value: [item[1], item[0], item[2] || '-'],
+      itemStyle: {
+        color: item[0] === 4 ? '#fe9a8b1a' : '#fff'
+      },
+      label: {
+        color: item[0] === 4 ? '#ccc' : '#fe9a8b',
+        align: 'center'
+      },
+      emphasis: {
+        itemStyle: {
+          color: item[0] === 4 ? '#fe9a8b1a' : '#FFF'
+        }
+      }
+    }
+  });
+
+  var option7 = {
+    grid: {
+      backgroundColor: '#F6F8FA',
+      width: 270,
+      height: 28 * yArrs.length,
+      left: 'center',
+      top: 'center'
+    },
+    xAxis: {
+      type: 'category',
+      data: types,
+      splitArea: {
+        show: false,
+      },
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        show: false
+      }
+    },
+    yAxis: {
+      type: 'category',
+      data: names,
+      splitArea: {
+        show: true,
+      },
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        show: false
+      }
+    },
+    series: [
+      {
+        type: 'heatmap',
+        data: data,
+        label: {
+          show: true,
+          fontSize: 14,
+          lineHeight: 22,
+          formatter: (params) => {
+            if (params.name === '产品名称') {
+              // console.log(params)
+              if (params.value[1] !== 4) {
+                return yArrs[2]
+              } else {
+                console.log(params)
+                return params.name
+              }
+            }
+            else if (params.name === '品种') {
+              if (params.value[1] === 4) {
+                return params.name + '（/万元）'
+              }
+            } else if (params.name === '产地') {
+              if (params.value[3] === 4) {
+                return params.name + '（/万元）'
+              }
+            } else {
+              return yArr[params.value[1]]
+            }
+          }
+        },
+        tooltip: {
+          show: false
+        },
+        itemStyle: {
+          color: '#fff'
+        }
+      }
+    ]
+  }
+  myChart7.setOption(option7);
+
+
+
+  var chartDom8 = document.querySelector('.exs8');
+  var myChart8 = echarts.init(chartDom8);
+  var types = [
+    '名称',
+    '详情'
+  ];
+  const yArr8 = ['交易总金额专卖店', '交易订单数量', '产品SKU', '月交易总金额专卖店', '交易总数']
+  var names = ['1', '2', '3', '4', '5'];
+
+  var data = [
+    [0, 0, 9],
+    [0, 1, 4],
+    [0, 2, 8.3],
+    [1, 0, 7],
+    [1, 1, 4],
+    [1, 2, 27.56],
+    [2, 0, 1],
+    [2, 1, 44],
+    [2, 2, 127.31],
+    [3, 0, 5],
+    [3, 1, 48],
+    [3, 2, 1741.88],
+    [4, 0, 100],
+    [4, 1, 100],
+    [4, 2, 100]
+  ];
+
+  data = data.map((item) => {
+    return {
+      value: [item[1], item[0], item[2] || '-'],
+      itemStyle: {
+        color: item[0] === 4 ? '#fe9a8b1a' : '#fff'
+      },
+      label: {
+        color: item[0] === 4 ? '#ccc' : '#fe9a8b',
+        align: 'center'
+      },
+      emphasis: {
+        itemStyle: {
+          color: item[0] === 4 ? '#fe9a8b1a' : '#FFF'
+        }
+      }
+    }
+  });
+
+  var option8 = {
+    grid: {
+      backgroundColor: '#F6F8FA',
+      width: 270,
+      height: 28 * yArr8.length,
+      left: 'center',
+      top: 'center'
+    },
+    xAxis: {
+      type: 'category',
+      data: types,
+      splitArea: {
+        show: false,
+      },
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        show: false
+      }
+    },
+    yAxis: {
+      type: 'category',
+      data: names,
+      splitArea: {
+        show: true,
+      },
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        show: false
+      }
+    },
+    series: [
+      {
+        type: 'heatmap',
+        data: data,
+        label: {
+          show: true,
+          fontSize: 14,
+          lineHeight: 22,
+          formatter: (params) => {
+            if (params.name === '比例') {
+              // console.log(params)
+              if (params.value[1] !== 4) {
+                return params.value[2] + '%'
+              } else {
+                console.log(params)
+                return params.name
+              }
+            }
+            else if (params.name === '详情') {
+              if (params.value[1] === 4) {
+                return params.name + '（/万元）'
+              }
+            } else {
+              return yArr[params.value[1]]
+            }
+          }
+        },
+        tooltip: {
+          show: false
+        },
+        itemStyle: {
+          color: '#fff'
+        }
+      }
+    ]
+  }
+  myChart8.setOption(option8);
+
+
+  var chartDom9 = document.querySelector('.exs9');
+  var myChart9 = echarts.init(chartDom9);
+  var types = [
+    '名称',
+    '详情'
+  ];
+  const yArr9 = ['交易总金额专卖店', '交易订单数量', '产品SKU', '月交易总金额专卖店', '交易总数']
+  var names = ['1', '2', '3', '4', '5'];
+
+  var data = [
+    [0, 0, 9],
+    [0, 1, 4],
+    [0, 2, 9.3],
+    [1, 0, 7],
+    [1, 1, 4],
+    [1, 2, 27.56],
+    [2, 0, 1],
+    [2, 1, 44],
+    [2, 2, 127.31],
+    [3, 0, 5],
+    [3, 1, 49],
+    [3, 2, 1741.99],
+    [4, 0, 100],
+    [4, 1, 100],
+    [4, 2, 100]
+  ];
+
+  data = data.map((item) => {
+    return {
+      value: [item[1], item[0], item[2] || '-'],
+      itemStyle: {
+        color: item[0] === 4 ? '#fe9a9b1a' : '#fff'
+      },
+      label: {
+        color: item[0] === 4 ? '#ccc' : '#fe9a9b',
+        align: 'center'
+      },
+      emphasis: {
+        itemStyle: {
+          color: item[0] === 4 ? '#fe9a9b1a' : '#FFF'
+        }
+      }
+    }
+  });
+
+  var option9 = {
+    grid: {
+      backgroundColor: '#F6F9FA',
+      width: 270,
+      height: 29 * yArr9.length,
+      left: 'center',
+      top: 'center'
+    },
+    xAxis: {
+      type: 'category',
+      data: types,
+      splitArea: {
+        show: false,
+      },
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        show: false
+      }
+    },
+    yAxis: {
+      type: 'category',
+      data: names,
+      splitArea: {
+        show: true,
+      },
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        show: false
+      }
+    },
+    series: [
+      {
+        type: 'heatmap',
+        data: data,
+        label: {
+          show: true,
+          fontSize: 14,
+          lineHeight: 22,
+          formatter: (params) => {
+            if (params.name === '比例') {
+              // console.log(params)
+              if (params.value[1] !== 4) {
+                return params.value[2] + '%'
+              } else {
+                console.log(params)
+                return params.name
+              }
+            }
+            else if (params.name === '详情') {
+              if (params.value[1] === 4) {
+                return params.name + '（/万元）'
+              }
+            } else {
+              return yArr[params.value[1]]
+            }
+          }
+        },
+        tooltip: {
+          show: false
+        },
+        itemStyle: {
+          color: '#fff'
+        }
+      }
+    ]
+  }
+  myChart9.setOption(option9);
+
+
+</script>
+
+</html>

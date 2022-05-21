@@ -1,0 +1,23 @@
+<view class="top">
+  <input type="text" value="请输入律师姓名或关键字" /> <text>取消</text>
+</view>
+
+<view class="box">
+  <view class="txt">擅长领域</view>
+  <text class="text txts">婚姻家事</text>
+  <text class="text">个人劳动争论</text>
+  <text class="text">单位劳动争论</text>
+  <text class="text">交通事故</text>
+  <text class="text">民间借贷</text>
+  <text class="text">公司股权</text>
+  <view class="txt" style="margin-top: 60rpx;">搜索历史</view>
+  <view class="li">
+    <image style="width: 30rpx; height: 30rpx;margin-right: 15rpx;" src="../../img/jilu-2(1).png"></image>
+    <text style="font-size: 30rpx;"> 续航</text>
+  </view>
+  <view class="li">
+    <image style="width: 30rpx; height: 30rpx;margin-right: 15rpx;" src="../../img/jilu-2(1).png"></image>
+    <text style="font-size: 30rpx;"> 续航</text>
+  </view>
+  <view class="last">清除搜索历史</view>
+</view>

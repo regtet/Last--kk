@@ -1,0 +1,64 @@
+.top {
+  padding: 70rpx 30rpx 30rpx;
+  background: rgb(39, 194, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.top text {
+  display: inline-block;
+  width: 100rpx;
+  margin: 0 30rpx;
+  color: #fff;
+}
+
+input {
+  flex: 1;
+  background-color: rgba(0, 0, 255, .3);
+  border-radius: 50rpx;
+  height: 70rpx;
+  padding-left: 28rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.box {
+  padding: 40rpx;
+}
+
+.txt {
+  font-size: 30rpx;
+}
+
+
+
+.text {
+  padding: 10rpx 16rpx;
+  border: 1px solid skyblue;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  margin: 20rpx;
+  display: inline-block;
+}
+
+.txts {
+  background: rgb(3, 70, 216);
+  color: #fff;
+}
+
+.li {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.last {
+  margin: 30rpx;
+  display: flex;
+  justify-content: center;
+  font-size: 30rpx;
+
+}

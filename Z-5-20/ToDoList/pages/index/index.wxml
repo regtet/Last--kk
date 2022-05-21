@@ -1,0 +1,33 @@
+<view class="top">
+  <text style="font-weight: 700;">ToDoList</text>
+  <input type="text" bindconfirm="input" value="{{value}}" placeholder="请输入内容" />
+</view>
+
+<view class="content">
+  <view class="tops">
+    <text style="font-weight: 700;"> 正在运行 </text>
+    <view class="num">{{num2}}</view>
+  </view>
+  <view class="li" wx:for="{{list}}" wx:key="index" hidden="{{item.flag}}">
+    <checkbox-group style=" display: inline-block;" bindchange="click" data-index="{{index}}">
+      <checkbox value="{{item.flag}}" checked="{{item.flag}}"> </checkbox>
+    </checkbox-group>
+    <view wx:if="{{item.num}}" style="display: inline-block;" bindtap="dbclick" data-index="{{index}}">{{item.name}}</view>
+    <input style="display: inline-block;" wx:else value="{{item.name}}" bindconfirm="ok" data-item="{{item.value}}" data-index="{{index}}" type="text" />
+    <text bindtap="del" data-index="{{index}}">×</text>
+  </view>
+</view>
+
+
+<view class="content">
+  <view class="tops">
+    <text style="font-weight: 700;"> 已经完成 </text>
+    <view class="num">{{num1}}</view>
+  </view>
+  <view class="li" wx:for="{{list}}" wx:key="index" hidden="{{!item.flag}}">
+    <checkbox-group style=" display: inline-block;" bindchange="click" data-index="{{index}}">
+      <checkbox value="{{item.flag}}" checked="{{item.flag}}"> </checkbox>
+    </checkbox-group>
+    {{item.name}} <text bindtap="del" data-index="{{index}}">×</text>
+  </view>
+</view>

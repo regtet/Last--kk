@@ -1,0 +1,78 @@
+<view class="box">
+  <image src="../../img/banner1.png" alt="" />
+  <view class="content">
+    <view class="ul">
+      <view wx:for="{{arr}}" wx:key="index" class="li">
+        <image src="{{item.src}}"></image>
+        <view> {{item.name}}</view>
+      </view>
+    </view>
+    <image style="width: 14rpx;height: 44rpx; vertical-align: middle;margin-right: 30rpx;" src="../../img/圆角矩形 2.png"></image> <text>推荐律师</text>
+    <view class="last">
+      <view class="mb" style="padding: 30rpx;">
+        <image style="width:120rpx;height: 120rpx;margin-right: 60rpx;" src="../../img/组 1 拷贝 24.png"></image>
+        <view class="rgt">
+          <view class="top">
+            <text style="color: #000;margin: 0;">北京广渠律师事务所</text>
+            <view>
+              <image src="../../img/lvshifuwu.png" alt="" /> <text style="color: orange;margin: 0; margin-left: 10rpx;">5年</text>
+            </view>
+          </view>
+          <image src="../../img/youxiu.png"></image> <text style="font-size: 28rpx;">优选律师</text>
+          <image src="../../img/wangpai.png"></image> <text style="font-size: 28rpx;">王牌律师</text>
+          <view class="btn">
+            擅长领域：婚姻家事，单位劳动争议，个人劳动争议，交通事故，
+          </view>
+        </view>
+      </view>
+      <view class="mb" style="padding: 30rpx;">
+        <image style="width:120rpx;height: 120rpx;margin-right: 60rpx;" src="../../img/组 1 拷贝 24.png"></image>
+        <view class="rgt">
+          <view class="top">
+            <text style="color: #000;margin: 0;">北京广渠律师事务所</text>
+            <view>
+              <image src="../../img/lvshifuwu.png" alt="" /> <text style="color: orange;margin: 0; margin-left: 10rpx;">5年</text>
+            </view>
+          </view>
+          <image src="../../img/youxiu.png"></image> <text style="font-size: 28rpx;">优选律师</text>
+          <image src="../../img/wangpai.png"></image> <text style="font-size: 28rpx;">王牌律师</text>
+          <view class="btn">
+            擅长领域：婚姻家事，单位劳动争议，个人劳动争议，交通事故，
+          </view>
+        </view>
+      </view>
+      <view class="mb" style="padding: 30rpx;">
+        <image style="width:120rpx;height: 120rpx;margin-right: 60rpx;" src="../../img/组 1 拷贝 24.png"></image>
+        <view class="rgt">
+          <view class="top">
+            <text style="color: #000;margin: 0;">北京广渠律师事务所</text>
+            <view>
+              <image src="../../img/lvshifuwu.png" alt="" /> <text style="color: orange;margin: 0; margin-left: 10rpx;">5年</text>
+            </view>
+          </view>
+          <image src="../../img/youxiu.png"></image> <text style="font-size: 28rpx;">优选律师</text>
+          <image src="../../img/wangpai.png"></image> <text style="font-size: 28rpx;">王牌律师</text>
+          <view class="btn">
+            擅长领域：婚姻家事，单位劳动争议，个人劳动争议，交通事故，
+          </view>
+        </view>
+      </view>
+      <view class="mb" style="padding: 30rpx;">
+        <image style="width:120rpx;height: 120rpx;margin-right: 60rpx;" src="../../img/组 1 拷贝 24.png"></image>
+        <view class="rgt">
+          <view class="top">
+            <text style="color: #000;margin: 0;">北京广渠律师事务所</text>
+            <view>
+              <image src="../../img/lvshifuwu.png" alt="" /> <text style="color: orange;margin: 0; margin-left: 10rpx;">5年</text>
+            </view>
+          </view>
+          <image src="../../img/youxiu.png"></image> <text style="font-size: 28rpx;">优选律师</text>
+          <image src="../../img/wangpai.png"></image> <text style="font-size: 28rpx;">王牌律师</text>
+          <view class="btn">
+            擅长领域：婚姻家事，单位劳动争议，个人劳动争议，交通事故，
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
