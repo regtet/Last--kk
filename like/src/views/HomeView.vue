@@ -38,7 +38,7 @@
                   :class="'iconfont ' + icon[i]"
                   style="margin-right: 5px; color: pink"
                 ></i>
-                <svg
+                <!-- <svg
                   class="icon"
                   aria-hidden="true"
                   style="margin-right: 5px; color: pink"
@@ -47,7 +47,7 @@
                     :xlink:href="'#' + icon[i]"
                     style="margin-right: 5px; color: pink"
                   ></use>
-                </svg>
+                </svg> -->
 
                 <span slot="title">{{ item.authName }} </span>
               </template>
@@ -60,7 +60,7 @@
                   :class="'iconfont ' + icon2[idx]"
                   style="margin-right: 5px"
                 ></i>
-                <svg
+                <!-- <svg
                   class="icon"
                   aria-hidden="true"
                   style="margin-right: 5px; color: pink"
@@ -69,7 +69,7 @@
                     :xlink:href="'#' + icon2[idx]"
                     style="margin-right: 5px; color: pink"
                   ></use>
-                </svg>
+                </svg> -->
                 {{ ele.authName }}
               </el-menu-item>
             </el-submenu>

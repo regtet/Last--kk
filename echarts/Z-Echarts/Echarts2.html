@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+  </div>
+</body>
+<script src="js/echarts.min.js"></script>
+<script>
+  const box = document.querySelector(".box")
+  const myChart = echarts.init(box, 'dark')
+  var option = {
+    title: {
+      show: true,//是否显示标题
+      text: "希君生羽翼，一化北溟鱼", //文本内容
+      textStyle: {
+        color: "#05fef2", //主标题文字颜色
+        fontStyle: "oblique",//文字风格
+        fontWeight: 'normal',//文字粗细
+        fontFamily: "华文新魏",//字体样式
+        fontSize: 25, //字体大小
+        textBorderColor: "#0f0",//文字本身的描边颜色。
+        textBorderWidth: "1", //文字本身的描边宽度。
+        textBorderType: 'solid', //文字本身的描边类型。
+        textBorderDashOffset: "0",//虚线的偏移量
+        textShadowColor: "#0f0",//文字阴影的颜色
+        textShadowBlur: "5",//阴影长度
+        textShadowOffsetX: 2,//阴影 X 偏移。
+        textShadowOffsetY: 2,//阴影 Y 偏移。
+        overflow: 'none',//文字超出宽度是否截断或者换行。配置width时有效
+        ellipsis: '...',  //在overflow配置为'truncate'的时候,可以通过该属性配置末尾显示的文本。
+        rich: {},//在 rich 里面，可以自定义富文本样式。利用富文本样式，可以在标签中做出非常丰富的效果。
+      },
+      subtext: '初见乍惊欢，久处也砰然',//副标题
+      subtextStyle: {
+        color: "#0f0",
+        fontStyle: "oblique",
+        fontWeight: 'normal',
+        fontFamily: "华文新魏",
+        fontSize: 25,
+        // textBorderColor: "#fff",
+        textBorderWidth: "3",
+        textBorderType: 'solid',
+        textShadowColor: "#f00",
+        textShadowBlur: "5",
+        textShadowOffsetX: 2,
+        textShadowOffsetY: 2,
+      },
+      textAlign: 'left',//整体（包括 text 和 subtext）的水平对齐。
+      textVerticalAlign: "auto",//整体（包括 text 和 subtext）的垂直对齐。
+      triggerEvent: true,//是否触发事件
+      padding: 12,//标题内边距
+      itemGap: 5,//主标题与副标题之间的距离
+      zlevel: 2,//所有图形的 zlevel 值,z相比zlevel优先级更低，而且不会创建新的 Canvas。
+      z: 2,//所有图形的 z 值。
+      left: 'auto', //title 组件离容器左侧的距离。
+      top: 'auto', //title 组件离容器上侧的距离。
+      right: 'auto', //title 组件离容器右侧的距离。
+      bottom: 'auto', //title 组件离容器下侧的距离。
+      backgroundColor: "#f00",//标题背景色，默认透明。
+      borderColor: "#00f",//标题的边框颜色。支持的颜色格式同 backgroundColor
+      borderWidth: 3, //标题的边框线宽。
+      borderRadius: 15,//圆角半径，单位px，支持传入数组分别指定 4 个圆角半径。 
+      shadowBlur: 10,//图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。
+      shadowColor: "#f00",//阴影颜色。
+      shadowOffsetX: 5,//阴影水平方向上的偏移距离。
+      shadowOffsetY: 5,//阴影垂直方向上的偏移距离。
+    },
+
+    legend: { //图例组件
+      type: "plain",//图例的类型-
+      show: true,//是否显示
+      zlevel: 15, //所有图形的 zlevel 值。
+      z: 15, //所有图形的 z 值。
+      left: 400,//图例组件离容器左侧的距离。
+      top: 10,//图例组件离容器上侧的距离
+      right: '10', // 图例组件离容器右侧的距离。
+      bottom: 'auto', // 图例组件离容器下侧的距离。
+      width: 'auto',//图例组件的宽度。
+      height: 'auto',//图例组件的高度。
+      orient: 'horizontal',//图例列表的布局朝向。--'horizontal'横向 ,'vertical'纵向
+      align: 'auto',//图例标记和文本的对齐。默认自动
+      padding: 5,//图例内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距。
+      itemGap: 15,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
+      itemWidth: 30,//图例标记的图形宽度。
+      itemHeight: 14,//图例标记的图形高度。
+      itemStyle: {//图例的图形样式。其属性的取值为 'inherit' 时，表示继承系列中的属性值。
+        //color: "",//图形的颜色。
+        borderColor: '#fff',//图形的描边颜色
+        borderWidth: "2",//当其值为 "auto" 时，如果系列有 borderWidth 取 2，如果系列没有 borderWidth 则取 0。当其值为 "inehrit" 时，始终取系列的 borderWidth。
+        borderType: "solid",//'solid''dashed''dotted'描边类型。
+        borderDashOffset: '51',//用于设置虚线的偏移量
+        borderCap: 'square',//用于指定线段末端的绘制方式，可以是：'butt': 线段末端以方形结束。'round': 线段末端以圆形结束。square': 线段末端以方形结束，但是增加了一个宽度和线段相同，高度是线段厚度一半的矩形区域。
+        borderJoin: 'bevel',
+        shadowBlur: '15',//图形阴影的模糊大小。
+        shadowColor: '#00f',//阴影颜色
+        shadowOffsetX: '5',//阴影水平方向上的偏移距离。
+        shadowOffsetY: '5',//阴影垂直方向上的偏移距离。
+        opacity: .6,//图形透明度。
+        //decal: '',//图形的贴花图案
+      },
+      lineStyle: { //图例图形中线的样式，
+        color: '#00f',//线的颜色。
+        width: 10,//线宽。
+        type: 'solid',//线的类型。
+        dashOffset: "15",//用于设置虚线的偏移量
+      },
+      symbolRotate: "10",//图形旋转角度
+      inactiveColor: "#ccc",//图例关闭时的颜色。
+      inactiveBorderColor: "#ccc",//图例关闭时的描边颜色。
+      inactiveBorderWidth: "auto",//图例关闭时的描边粗细。
+      textStyle: { //图例的公用文本样式。
+        color: "#0f0",//文字的颜色。
+        fontStyle: "italic",//文字字体的风格。
+        fontWeight: "normal",//文字字体的粗细。
+        fontFamily: "华文彩云",//文字的字体系列。
+        fontSize: "16",//文字的字体大小。
+        lineHeight: "30",//行高。
+        backgroundColor: "transparent",//文字块背景色。
+        borderColor: "transparent",//文字块边框颜色。
+        borderType: "solid",//文字块边框描边类型。
+        borderDashOffset: "14",//用于设置虚线的偏移量
+        borderRadius: "15",//文字块的圆角。
+        padding: [3, 4, 5, 6],//文字块的内边距。
+        shadowColor: "transparent",//文字块的背景阴影颜色。
+        shadowBlur: "15",//文字块的背景阴影长度。
+        shadowOffsetX: "15",//文字块的背景阴影 X 偏移。
+        shadowOffsetY: "15",//文字块的背景阴影 Y 偏移。
+        ellipsis: "123",//在overflow配置为'truncate'的时候，可以通过该属性配置末尾显示的文本。
+        rich: {},//在 rich 里面，可以自定义富文本样式。利用富文本样式，可以在标签中做出非常丰富的效果。
+        icon: "circle"
+      },
+      tooltip: {
+        show: true
+      },
+      borderColor: 'red',//图例背景色，默认透明。
+      backgroundColor: 'red',//图例的边框颜色。
+      borderWidth: '1',//图例的边框线宽。
+      borderRadius: 15,//圆角半径，单位px
+      shadowBlur: 15,//图形阴影的模糊大小
+      shadowColor: 15,//阴影颜色。支持的格式同color。
+      shadowOffsetX: 15,//阴影水平方向上的偏移距离。
+      shadowOffsetY: 15,//阴影垂直方向上的偏移距离。
+      scrollDataIndex: 15,//图例当前最左上显示项的 dataIndex。
+      pageButtonItemGap: 15,//图例控制块中，按钮和页信息之间的间隔。
+      pageButtonGap: 10,//图例控制块和图例项之间的间隔。
+      pageButtonPosition: "start",//legend.type 为 'scroll' 时有效。'start'：控制块在左或上。'end'：控制块在右或下。
+      pageIcons: {},//图例控制块的图标。
+      pageIconColor: "",//翻页按钮的颜色。
+      pageIconInactiveColor: "",//翻页按钮不激活时（即翻页到头时）的颜色。
+      pageIconSize: "",//翻页按钮的大小。
+      pageTextStyle: {//图例页信息的文字样式。
+        color: "",//文字的颜色。
+        fontStyle: "",//文字字体的风格。
+        fontWeight: "",//文字字体的粗细。
+        fontFamily: "",//文字的字体系列
+        fontSize: "",//文字的字体大小。
+        lineHeight: "",//行高。
+        width: "",//文本显示宽度。
+        height: "",//文本显示高度。
+        textBorderColor: "",//文字本身的描边颜色。
+        textBorderWidth: "",//文字本身的描边宽度。
+        textBorderType: "",//文字本身的描边类型。
+        textBorderDashOffset: "",//用于设置虚线的偏移量，可搭配 textBorderType 指定 dash array 实现灵活的虚线效果。
+        textShadowColor: "",//文字本身的阴影颜色。
+        textShadowBlur: "",//文字本身的阴影长度。
+        textShadowOffsetX: "",//文字本身的阴影 X 偏移。
+        textShadowOffsetY: "",//文字本身的阴影 Y 偏移。
+        overflow: "",//文字超出宽度是否截断或者换行。配置width时有效
+        ellipsis: "",//在overflow配置为'truncate'的时候，可以通过该属性配置末尾显示的文本。
+        animation: true,//图例翻页是否使用动画。
+        animationDurationUpdate: 800,//图例翻页时的动画时长
+
+      },
+    },
+
+    grid: {//直角坐标系内绘图网格，单个 grid 内最多可以放置上下两个 X 轴，左右两个 Y 轴。可以在网格上绘制折线图，柱状图，散点图（气泡图）。
+      show: true,//是否显示直角坐标系网格。
+      left: 30,//grid 组件离容器左侧的距离。
+      top: 30,//grid 组件离容器上侧的距离。
+      right: 30,//grid 组件离容器右侧的距离。
+      bottom: 30,//grid 组件离容器下侧的距离。
+      width: 'auto',//grid 组件的宽度。默认自适应。
+      height: 'auto',//grid 组件的高度。默认自适应
+      containLabel: false,//grid 区域是否包含坐标轴的刻度标签。
+      backgroundColor: 'transparent',//网格背景色，默认透明。
+      borderColor: '#ff0',//网格的边框颜色。支持的颜色格式同 backgroundColor。
+      borderWidth: 3,//网格的边框线宽。
+      shadowBlur: 3,//图形阴影的模糊大小。
+      shadowColor: 'ff0',//阴影颜色。
+      shadowOffsetX: 15,//grid 阴影水平方向上的偏移距离。
+      shadowOffsetY: 0,//阴影垂直方向上的偏移距离。
+      tooltip: {//本坐标系特定的 tooltip 设定。
+        show: true,//是否显示提示框组件。
+        trigger: 'item',//触发类型。
+        axisPointer: {},//坐标轴指示器配置项。
+      },
+    },
+
+    xAxis: {
+      show: true,
+      type: 'category',//坐标轴类型。'value' 数值轴，适用于连续数据。'category' 类目轴，time' 时间轴，'log' 对数轴
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      gridIndex: 0,//x 轴所在的 grid 的索引，默认位于第一个 grid。
+      alignTicks: false,//在多个 x 轴为数值轴的时候，可以开启该配置项自动对齐刻度。
+      position: 'bottom',//x 轴的位置。
+      offset: 5,//X 轴相对于默认位置的偏移，在相同的 position 上有多个 X 轴的时候有用。
+      name: "",//坐标轴名称。
+      nameLocation: "",//坐标轴名称显示位置。'start''middle' 或者 'center''end'
+      name: "www",//坐标轴名称。
+      nameTextStyle: {//坐标轴名称的文字样式。
+        color: "#f00",//坐标轴名称的颜色，
+        fontStyle: "oblique",//坐标轴名称文字字体的风格。'normal''italic''oblique'
+        fontWeight: "bold",//坐标轴名称文字字体的粗细。'normal''bold''bolder''lighter'
+        fontFamily: "Arial",//坐标轴名称文字的字体系列。
+        fontSize: "20",//坐坐标轴名称文字的字体大小。
+        align: "left",//文字水平对齐方式，默认自动。
+        verticalAlign: "top",//文字垂直对齐方式，默认自动。
+        lineHeight: 15,//行高
+        backgroundColor: "#fff",//文字块背景色。
+        borderColor: "#f00",//文字块边框颜色。
+        borderWidth: "1",//文字块边框宽度。
+        borderType: "solid",//文字块边框描边类型
+        borderDashOffset: 15,//用于设置虚线的偏移量
+        borderRadius: 15,//文字块的圆角。
+        padding: 5,//文字块的内边距。
+        shadowColor: 'transparent',//文字块的背景阴影颜色。
+        shadowBlur: 15,//文字块的背景阴影长度。
+        shadowOffsetX: 5,//文字块的背景阴影 X 偏移。
+        shadowOffsetY: 5,//文字块的背景阴影 Y 偏移。
+        width: 100,//文本显示宽度。
+        height: 100,//文本显示宽度。
+        textBorderColor: "#0f0",//文字本身的描边颜色。
+        textBorderWidth: 10,//文字本身的描边宽度
+        textBorderType: 'solid',//文字本身的描边类型。
+        textBorderDashOffset: 15,//用于设置虚线的偏移量
+        textShadowColor: 'transparent',//文字本身的阴影颜色。
+        textShadowBlur: '10',//文字本身的阴影长度
+        textShadowOffsetX: '15',//文字本身的阴影 X 偏移。
+        textShadowOffsetY: '15',//文字本身的阴影 Y 偏移。
+        textShadowColor: 'transparent',//文字本身的阴影颜色。
+        nameGap: 20,//坐标轴名称与轴线之间的距离。
+        nameRotate: 15,//坐标轴名字旋转，角度值。
+        inverse: 205,//是否是反向坐标轴。
+      }
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        name: 'Access From',
+        type: 'pie',
+        radius: '50%',
+        data: [
+          { value: 1048, name: 'Search Engine' },
+          { value: 735, name: 'Direct' },
+          { value: 580, name: 'Email' },
+          { value: 484, name: 'Union Ads' },
+          { value: 300, name: 'Video Ads' }
+        ],
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
+        }
+      }
+    ]
+  };
+  myChart.setOption(option)
+</script>
+
+</html>

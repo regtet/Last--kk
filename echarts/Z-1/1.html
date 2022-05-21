@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      background: url(img/bg.jpg) no-repeat 0 0 / 100%;
+    }
+
+    body {
+      display: flex;
+      color: #fff;
+    }
+
+    .box {
+      flex: 1;
+    }
+
+    .box:nth-child(1) {
+      flex: 1;
+    }
+
+    .top {
+      padding: 40px 60px;
+      box-sizing: border-box;
+      height: 60px;
+      font-size: 14px;
+    }
+
+    .title {
+      background: url(img/bnt.png) no-repeat 0 0 / 100%;
+      padding: 5px 15px;
+      margin: 0 10px;
+      margin-top: 15px;
+    }
+
+    .left1 {
+      height: 240px;
+      padding: 30px;
+      background: url(img/pulefttop.png) no-repeat center / 88%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .left2 {
+      height: 240px;
+      padding: 30px;
+      background: url(img/midtop.png) no-repeat center / 90% 100%;
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    .zuo2,
+    .you2 {
+      flex: 1;
+      margin: 0 3px;
+      height: 230px;
+      background: rgba(0, 0, rgb(0, 0, 0), .9);
+    }
+
+    .zuo1,
+    .you1 {
+      flex: 1;
+      margin: 0 3px;
+      height: 230px;
+      background: rgba(0, 0, rgb(0, 0, 0), .9);
+    }
+
+    .leftlast {
+      height: 240px;
+      display: flex;
+      padding: 20px;
+      background: url(img/midtop.png) no-repeat center / 90% 100%;
+      justify-content: space-between;
+    }
+
+    .zuo3 {
+      flex: 1;
+      background: rgba(0, 0, blue, .9);
+    }
+
+    .you3 {
+      width: 30%;
+      margin-left: 10px;
+      background: rgba(0, 0, blue, .9);
+      text-align: center;
+    }
+
+    .boxtop {
+      background: url(img/midtop.png) no-repeat center / 90% 100%;
+    }
+
+    .box:nth-child(2)>.boxtop {
+      margin-top: 100px;
+      display: inline-block;
+    }
+
+    .boxbtn {
+      width: 100%;
+      height: 300px;
+      margin: 0;
+      background: url(img/midtop.png) no-repeat center / 90% 100%;
+
+    }
+
+    .boxtop:nth-child(1) {
+      display: flex;
+      justify-content: space-between;
+      float: left;
+      padding: 10px 25px;
+      overflow: hidden;
+    }
+
+    .boxtop:nth-child(1) li {
+      margin: 5px;
+      float: left;
+      width: 45%;
+      height: 45%;
+      text-align: center;
+      font-size: 14px;
+      padding-top: 60px;
+      background: rgba(0, 0, 0, .3);
+    }
+
+    .box:nth-child(3) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .box:nth-child(3) .top {
+      height: 100px;
+    }
+
+    .box:nth-child(3) div {
+      width: 100%;
+      height: 220px;
+      background: url(img/midtop.png) no-repeat center / 90% 100%;
+    }
+
+    .boxtop:nth-child(2) {
+      padding: 5px;
+    }
+
+    .boxtop:nth-child(2) p {
+      padding: 0 25px;
+      text-align: center;
+    }
+
+    .boxtop:nth-child(2) li {
+      padding: 20px;
+      list-style: armenian;
+      font-size: 12px;
+      padding-left: 15px;
+    }
+
+    .boxbtn {
+      width: 100%;
+      display: flex;
+      padding: 0 30px;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    .rig {
+      padding-top: 15px;
+      width: 200px;
+      text-align: center;
+      line-height: 80px;
+    }
+
+    .lef {
+      flex: 1
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="top">
+      <span class="title">警情警力</span>
+      <span class="title">实有人口</span>
+      <span class="title">流动人口</span>
+      <span class="title">实名制</span>
+    </div>
+    <div class="left1">
+      <div class="zuo1"></div>
+      <div class="you1"></div>
+    </div>
+    <div class="left2">
+      <div class="zuo2">1</div>
+      <div class="you2">2</div>
+    </div>
+    <div class="leftlast">
+      <div class="zuo3"></div>
+      <div class="you3">
+        <p>今日舆情总数</p>
+        <p style="color: pink;font-size: 25px;"> 54</p>
+        <p>环比2%</p>
+        <p>本周舆情总数</p>
+        <p style="color: #0f0;font-size: 25px;">54</p>
+        <p>环比3%</p>
+        <p>本月舆情总数</p>
+        <p style="color: #00f;font-size: 25px;">4</p>
+        <p>环比3%</p>
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <div class="boxtop " style="width: 48%;height: 400px;">
+      <p style="text-align: center;">今日舆论</p>
+      <p style=" display: flex; justify-content:space-between;font-size: 12px;"><span>状态:一条街</span>
+        <span>时间段:2108-06-10</span>
+      </p>
+      <li>
+        <p>今日疫情总数</p>
+        <p style="color: #00f;font-size: 45px;">54</p>
+        <p>环比2%</p>
+      </li>
+      <li>
+        <p>今日疫情总数</p>
+        <p style="color: #0f0;font-size: 45px;">54</p>
+        <p>环比2%</p>
+      </li>
+      <li>
+        <p>今日疫情总数</p>
+        <p style="color: #f00;font-size: 45px;">54</p>
+        <p>环比2%</p>
+      </li>
+      <li>
+        <p>今日疫情总数</p>
+        <p style="color: #0dffdd;font-size: 45px;">54</p>
+        <p>环比2%</p>
+      </li>
+    </div>
+    <div class="boxtop" style="width: 48%;height: 400px;">
+      <p>热门信息</p>
+      <p style=" display: flex; justify-content:space-between;font-size: 12px;">
+        <span>状态:一条街</span>
+        <span>时间段:2108-06-10</span>
+      </p>
+      <li>偶偶偶偶偶偶偶无木大阿瓦达无木到无多木内外你狄拉克我能打on </li>
+      <li>偶偶偶偶偶偶偶无木大阿瓦达无木到无多木内外你狄拉克我能打on </li>
+      <li>偶偶偶偶偶偶偶无木大阿瓦达无木到无多木内外你狄拉克我能打on </li>
+      <li>偶偶偶偶偶偶偶无木大阿瓦达无木到无多木内外你狄拉克我能打on </li>
+      <li>偶偶偶偶偶偶偶无木大阿瓦达无木到无多木内外你狄拉克我能打on </li>
+    </div>
+    <div class="boxbtn">
+      <div class="lef"></div>
+      <div class="rig">
+        <p>今日总结</p>
+        <p style="color: pink;font-size: 30px;">54</p>
+        <p>2%</p>
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <div class="top" style="margin: 15px 40px">
+      <span class="title">舆情</span>
+      <span class="title">交通</span>
+      <span class="title">分析报告</span>
+      <span class="title">返回</span>
+    </div>
+    <div class="boxitem1"></div>
+    <div class="boxitem2"></div>
+    <div class="boxitem3"></div>
+  </div>
+</body>
+
+</html>
+<script src="./echarts.min.js"></script>
+<script>
+  var ex1 = document.querySelector(".zuo1")
+  var echart1 = echarts.init(ex1)
+  var option1 = {
+    title: {
+      show: true,
+      text: "舆情来源分析",
+      textStyle: {
+        color: "#Fff",
+        fontSize: '12'
+      },
+      subtext: "",
+
+      subtextStyle: {
+        color: "#Fff",
+        fontSize: '12',
+      },
+      left: 80,
+      top: "0"
+    },
+    xAxis: {
+      show: false
+    },
+    yAxis: {
+      show: false,
+    },
+    series: [
+      {
+        symbolSize: 20,
+        data: [
+          [0, 4,],
+          [.3, 5.],
+          [0.5, 2.],
+          [0.8, 1.],
+          [.1, 3.],
+        ],
+
+        type: 'scatter',
+        colorBy: "data"
+      }
+    ]
+  }
+  echart1.setOption(option1)
+  var ex2 = document.querySelector(".you1")
+  var echart2 = echarts.init(ex2)
+  var option2 = {
+    xAxis: {
+      type: 'value'
+    },
+    yAxis: {
+      type: 'category',
+      data: ['论坛', '贴吧', '新闻', '网站', '微信']
+    },
+    series: [
+      {
+        data: [30, 60, 90, 100, 200],
+        type: 'bar',
+        backgroundStyle: {
+          borderWidth: 1
+        }
+      }
+    ]
+  }
+  echart2.setOption(option2)
+
+  var ex3 = document.querySelector(".you2")
+  var echart3 = echarts.init(ex3)
+  var option3 = {
+    xAxis: {
+      type: 'value'
+    },
+    yAxis: {
+      type: 'category',
+      data: ['论坛', '贴吧', '新闻', '网站', '微信']
+    },
+    series: [
+      {
+        data: [30, 60, 90, 100, 200],
+        type: 'bar',
+        backgroundStyle: {
+          borderWidth: 1
+        }
+      }
+    ]
+  }
+  echart3.setOption(option3)
+
+  var ex4 = document.querySelector(".zuo2")
+  var echart4 = echarts.init(ex4)
+  var option4 = {
+    toolbox: {
+      show: true,
+      feature: {
+        mark: { show: true },
+        dataView: { show: true, readOnly: false },
+        restore: { show: true },
+        saveAsImage: { show: true }
+      }
+    },
+    series: [
+      {
+        name: 'Nightingale Chart',
+        type: 'pie',
+        radius: [15, 25],
+        center: ['50%', '50%'],
+        roseType: 'area',
+        itemStyle: {
+          borderRadius: 8
+        },
+        data: [
+          { value: 40, name: 'rose 1' },
+          { value: 38, name: 'rose 2' },
+          { value: 32, name: 'rose 3' },
+          { value: 30, name: 'rose 4' },
+          { value: 28, name: 'rose 5' },
+          { value: 26, name: 'rose 6' },
+          { value: 22, name: 'rose 7' },
+          { value: 18, name: 'rose 8' }
+        ]
+      }
+    ]
+  };
+  echart4.setOption(option4)
+
+  var ex5 = document.querySelector(".zuo3")
+  var echart5 = echarts.init(ex5)
+  const data = [
+    [
+      [28604, 77, 17096869, 'Australia', 1990],
+      [31163, 77.4, 27662440, 'Canada', 1990],
+      [1516, 68, 1154605773, 'China', 1990],
+      [13670, 74.7, 10582082, 'Cuba', 1990],
+      [28599, 75, 4986705, 'Finland', 1990],
+      [29476, 77.1, 56943299, 'France', 1990],
+      [31476, 75.4, 78958237, 'Germany', 1990],
+      [28666, 78.1, 254830, 'Iceland', 1990],
+      [1777, 57.7, 870601776, 'India', 1990],
+      [29550, 79.1, 122249285, 'Japan', 1990],
+      [2076, 67.9, 20194354, 'North Korea', 1990],
+      [12087, 72, 42972254, 'South Korea', 1990],
+      [24021, 75.4, 3397534, 'New Zealand', 1990],
+      [43296, 76.8, 4240375, 'Norway', 1990],
+      [10088, 70.8, 38195258, 'Poland', 1990],
+      [19349, 69.6, 147568552, 'Russia', 1990],
+      [10670, 67.3, 53994605, 'Turkey', 1990],
+      [26424, 75.7, 57110117, 'United Kingdom', 1990],
+      [37062, 75.4, 252847810, 'United States', 1990]
+    ],
+    [
+      [44056, 81.8, 23968973, 'Australia', 2015],
+      [43294, 81.7, 35939927, 'Canada', 2015],
+      [13334, 76.9, 1376048943, 'China', 2015],
+      [21291, 78.5, 11389562, 'Cuba', 2015],
+      [38923, 80.8, 5503457, 'Finland', 2015],
+      [37599, 81.9, 64395345, 'France', 2015],
+      [44053, 81.1, 80688545, 'Germany', 2015],
+      [42182, 82.8, 329425, 'Iceland', 2015],
+      [5903, 66.8, 1311050527, 'India', 2015],
+      [36162, 83.5, 126573481, 'Japan', 2015],
+      [1390, 71.4, 25155317, 'North Korea', 2015],
+      [34644, 80.7, 50293439, 'South Korea', 2015],
+      [34186, 80.6, 4528526, 'New Zealand', 2015],
+      [64304, 81.6, 5210967, 'Norway', 2015],
+      [24787, 77.3, 38611794, 'Poland', 2015],
+      [23038, 73.13, 143456918, 'Russia', 2015],
+      [19360, 76.5, 78665830, 'Turkey', 2015],
+      [38225, 81.4, 64715810, 'United Kingdom', 2015],
+      [53354, 79.1, 321773631, 'United States', 2015]
+    ]
+  ];
+  var option5 = {
+    xAxis: {},
+    yAxis: {},
+    series: [
+      {
+        symbolSize: 20,
+        data: [
+          [10.0, 8.04],
+          [8.07, 6.95],
+          [13.0, 7.58],
+          [9.05, 8.81],
+          [11.0, 8.33],
+          [14.0, 7.66],
+          [13.4, 6.81],
+          [10.0, 6.33],
+          [14.0, 8.96],
+          [12.5, 6.82],
+          [9.15, 7.2],
+          [11.5, 7.2],
+          [3.03, 4.23],
+          [12.2, 7.83],
+          [2.02, 4.47],
+          [1.05, 3.33],
+          [4.05, 4.96],
+          [6.03, 7.24],
+          [12.0, 6.26],
+          [12.0, 8.84],
+          [7.08, 5.82],
+          [5.02, 5.68]
+        ],
+        type: 'scatter'
+      }
+    ]
+  };
+  echart5.setOption(option5)
+
+  var ex6 = document.querySelector(".lef")
+  var echart6 = echarts.init(ex6)
+  var option6 = {
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        data: [150, 230, 224, 218, 135, 147, 260],
+        type: 'line'
+      }, {
+        data: [120, 200, 150, 80, 70, 110, 130],
+        type: 'bar'
+      }
+    ]
+  };
+  echart6.setOption(option6)
+
+
+  var ex7 = document.querySelector(".boxitem1")
+  var echart7 = echarts.init(ex7)
+  var option7 = {
+
+    toolbox: {
+      show: true,
+      feature: {
+        mark: { show: true },
+        dataView: { show: true, readOnly: false },
+        restore: { show: true },
+        saveAsImage: { show: true }
+      }
+    },
+    series: [
+      {
+        name: 'Nightingale Chart',
+        type: 'pie',
+        radius: [10, 80],
+        center: ['50%', '50%'],
+        roseType: 'area',
+        itemStyle: {
+          borderRadius: 8
+        },
+        data: [
+          { value: 40, name: 'rose 1' },
+          { value: 38, name: 'rose 2' },
+          { value: 32, name: 'rose 3' },
+          { value: 30, name: 'rose 4' },
+          { value: 28, name: 'rose 5' },
+          { value: 26, name: 'rose 6' },
+          { value: 22, name: 'rose 7' },
+          { value: 18, name: 'rose 8' }
+        ]
+      }
+    ]
+  };
+  echart7.setOption(option7)
+
+  var ex8 = document.querySelector(".boxitem2")
+  var echart8 = echarts.init(ex8)
+  var option8 = {
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line',
+        areaStyle: {}
+      }
+    ]
+  };
+  echart8.setOption(option8)
+  var ex9 = document.querySelector(".boxitem3")
+  var echart9 = echarts.init(ex9)
+  var option9 = {
+    title: {
+      text: 'Referer of a Website',
+      subtext: 'Fake Data',
+      left: 'center'
+    },
+
+
+    series: [
+      {
+        name: 'Access From',
+        type: 'pie',
+        radius: '50%',
+        data: [
+          { value: 1048, name: 'Search Engine' },
+          { value: 300, name: 'Video Ads' }
+        ],
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
+        }
+      }
+    ]
+  };
+  echart9.setOption(option9)
+
+</script>
