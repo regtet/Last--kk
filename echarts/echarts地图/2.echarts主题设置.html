@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mychart {
+            border: 1px solid #ccc;
+            width: 800px;
+            height: 400px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mychart"></div>
+</body>
+<script src="./lib/echarts.min.js"></script>
+<script src="./theme/westeros.js"></script>
+<script>
+    //获取dom元素
+    const mychartDom = document.querySelector('.mychart')
+        //将mychartDom初始化为一个Echart对象
+    const myChart = echarts.init(mychartDom, 'westeros', {
+        renderer: 'canvas'
+    })
+
+    //配置图表对象  
+    const config = {
+            //标题组件
+            title: {
+                text: 'Echarts快速入门',
+                subtext: '数据可视化'
+            },
+            //提示组件
+            tooltip: {},
+            //X轴
+            xAxis: {
+                data: ['前端', '大数据', 'UI', '测试', '产品']
+            },
+            //Y轴
+            yAxis: {
+                //最小刻度
+                min: 0,
+                //最大 刻度
+                max: 30000
+            },
+            //通过series生成数据对图的映射关系,重点
+            series: [
+                //生柱形图
+                {
+                    type: 'bar',
+                    data: [14000, 15000, 12000, 10000, 11000]
+                },
+                //生成折线图
+                {
+                    type: 'line',
+                    data: [15000, 16000, 13500, 12000, 21800]
+                },
+                //生成饼图
+                {
+                    type: 'pie',
+                    radius: ['0%', '20%'],
+                    center: ['80%', '20%'],
+                    data: [{
+                        name: '北京',
+                        value: 200
+                    }, {
+                        name: '上海',
+                        value: 120
+                    }, {
+                        name: '杭州',
+                        value: 300
+                    }]
+                }
+            ]
+
+        }
+        //渲染图表数据
+    myChart.setOption(config)
+</script>
+
+</html>

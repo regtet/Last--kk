@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+    .box {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .itembox {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .elebox:nth-child(1) {
+      width: 100%;
+      height: 200px;
+      background: url(images/border_bg01.png) no-repeat 0 0 / 90%;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    .elebox:nth-child(1) p {
+      display: inline-block;
+      width: 150px;
+      color: rgba(25, 128, 245, 0.737);
+      background: url(images/title_bg01.png) no-repeat 0 0 / 100%;
+      margin: 20px 0;
+    }
+
+    .content {
+      padding-left: 60px;
+      margin: 10px 0;
+      box-sizing: border-box;
+      background: url(images/box_title.png) no-repeat 0 0 /90% auto;
+    }
+
+    .exs1 {
+      width: 500px;
+      height: 300px;
+    }
+
+    .exs2 {
+      width: 500px;
+      height: 200px;
+    }
+
+    .itembox:nth-child(2) {
+      text-align: center;
+    }
+
+    .top {
+      width: 100%;
+      height: 50px;
+      background: url(./images/title_border.png) no-repeat 10px 10px / 100% auto;
+    }
+
+    .cebter {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cebter .lft {
+      margin: 5px 0;
+      width: 48%;
+      display: flex;
+      padding: 15px;
+      height: 100px;
+      box-sizing: border-box;
+      border: 1px solid blue;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .lft .gg {
+      width: 1px;
+      background: #ccc;
+      margin: 0 10px;
+    }
+
+    .lft .rr {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .lft .rr img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .itembox:nth-child(3) {
+      padding: 5px;
+    }
+
+    .yuan {
+      width: 100%;
+      height: 200px;
+      text-align: center;
+      line-height: 200px;
+      font-weight: 700;
+      font-size: 40px;
+      background: url(./images/bg_img04.png) no-repeat 0 0 /90%;
+    }
+
+    .exs4 {
+      width: 90%;
+      height: 300px;
+    }
+
+    .exs5 {
+      width: 100%;
+      height: 150px;
+      padding: 30px;
+      box-sizing: border-box;
+      line-height: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="itembox">
+      <div class="elebox">
+        <p>当前到件量</p>
+        <h3 style="font-size: 35px;">123,456,789</h3>
+      </div>
+      <div class="elebox">
+        <p class="content">派件入库占比</p>
+        <div class="exs1"></div>
+      </div>
+      <div class="elebox">
+        <p class="content">广东派件入库占比</p>
+        <div class="exs2"></div>
+      </div>
+    </div>
+    <div class="itembox">
+      <div class="top">
+        <h1>智 慧 物 流 服 务</h1>
+      </div>
+
+      <div class="cebter">
+        <div class="lft">
+          <div>
+            <p>16:10:21</p> <br>
+            <p>2020/02/12 pm 周一</p>
+          </div>
+          <div class="gg"></div>
+          <div class="rr">
+            <img src="./images/weather/中雨.png" alt="">
+            <div>
+              <p>多云</p>
+              <p>16-22℃</p>
+              <p>的鸡尾酒ad</p>
+            </div>
+          </div>
+        </div>
+        <div class="l">
+          <img src="./images/line_bg.png" alt="">
+        </div>
+        <div class="r">
+          <span style="background: rgb(4, 188, 255);width: 40px;">派件</span>
+          <span style="width: 40px;">寄件</span> <br>
+
+          <span
+            style="display: inline-block;;border: 1px solid rgb(4, 188, 255);padding: 5px 20px;margin-top: 20px;">公司</span>
+          <span
+            style="display: inline-block;;border: 1px solid rgb(4, 188, 255);padding: 5px 20px;margin-top: 20px;">快件类型</span>
+        </div>
+      </div>
+      <div class="exs3"></div>
+    </div>
+    <div class="itembox">
+      <p class="content">派件数据</p>
+      <div class="exs4"></div>
+      <p class="content">收入数据</p>
+      <div class="yuan">
+        123,456,5元
+      </div>
+      <p class="content">设置</p>
+      <div class="exs5">
+        <p>今日值班:</p>
+        <p>负责人:</p>
+      </div>
+
+    </div>
+  </div>
+</body>
+<script src="echarts.min.js"></script>
+<script>
+  var chartDom = document.querySelector('.exs1');
+  var myChart = echarts.init(chartDom);
+  var option = {
+    tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      top: '5%',
+      left: 'center'
+    },
+    series: [
+      {
+        name: 'Access From',
+        type: 'pie',
+        radius: ['40%', '70%'],
+        avoidLabelOverlap: false,
+        label: {
+          show: false,
+          position: 'center'
+        },
+        emphasis: {
+          label: {
+            show: true,
+            fontSize: '40',
+            fontWeight: 'bold'
+          }
+        },
+        labelLine: {
+          show: false
+        },
+        data: [
+          { value: 1048, name: 'Search Engine' },
+          { value: 735, name: 'Direct' },
+          { value: 580, name: 'Email' },
+          { value: 484, name: 'Union Ads' },
+          { value: 300, name: 'Video Ads' }
+        ]
+      }
+    ]
+  };
+
+  myChart.setOption(option);
+
+  var chartDom = document.querySelector('.exs4');
+  var myChart = echarts.init(chartDom);
+  var option = {
+    backgroundColor: '#151F2A',
+    grid: {
+      containLabel: true,
+      left: 20,
+      right: 20,
+      bottom: 10,
+      top: 40,
+    },
+    xAxis: {
+      axisLabel: {
+        color: '#c0c3cd',
+        fontSize: 14,
+        interval: 0,
+      },
+      axisTick: {
+        show: false,
+      },
+      splitLine: {
+        show: false,
+      },
+      axisLine: {
+        show: false,
+      },
+      data: ['01-01', '01-05', '01-10', '01-15', '01-20', '01-25', '01-30'],
+      type: 'category',
+    },
+    yAxis: {
+      axisLabel: {
+        color: '#c0c3cd',
+        fontSize: 14,
+      },
+      axisTick: {
+        show: false,
+      },
+      splitLine: {
+        show: false,
+      },
+      axisLine: {
+        show: false,
+      },
+      name: '',
+    },
+    series: [
+      {
+        data: [353, 66, 112, 270, 315, 418, 500],
+        type: 'bar',
+        barMaxWidth: 'auto',
+        barWidth: 30,
+        itemStyle: {
+          color: '#22E5D1',
+        },
+        label: {
+          show: false,
+          // position: 'top',
+          // distance: 10,
+          // color: '#fff'
+        },
+      },
+      {
+        data: [500, 500, 500, 500, 500, 500, 500],
+        type: 'bar',
+        barMaxWidth: 'auto',
+        barWidth: 30,
+        barGap: '-100%',
+        zlevel: -1,
+        itemStyle: {
+          color: '#174249',
+        },
+      },
+    ],
+
+  };
+  myChart.setOption(option);
+</script>
+
+</html>
